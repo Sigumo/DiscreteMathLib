@@ -3,9 +3,9 @@
 class MegaNatural : MegaNaturalBase
 {
 public:
-	MegaNatural() : MegaNaturalBase() {}
-	MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase(ob) {}
-	~MegaNatural() : ~MegaNaturalBase() {}
+	MegaNatural() : MegaNaturalBase();
+	MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase(ob);
+	~MegaNatural() : ~MegaNaturalBase();
 
 	//Описание: сравнение натуральных чисел
 	//Возврат(1,0,-1)
@@ -27,7 +27,7 @@ public:
 	virtual void subNatMulK(MegaNaturalBase &ob, int k) override;
 	//Описание: умножение на натуральное
 	virtual void multByNat(MegaNaturalBase &ob) override;
-	//Описание: первая цифра деления на натуральное
+	//Описание: первая цифра делителя при делении на натуральное
 	virtual int firstDigOfDivByNat(MegaNaturalBase &ob) override;
 	//Описание: деление на натуральное
 	virtual void divByNat(MegaNaturalBase &ob) override;

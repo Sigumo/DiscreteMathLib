@@ -35,7 +35,7 @@ public:
 	virtual void subNatMulK(MegaNaturalBase &ob, int k) = 0;
 	//Описание: умножение на натуральное
 	virtual void multByNat(MegaNaturalBase &ob) = 0;
-	//Описание: первая цифра деления на натуральное
+	//Описание: первая цифра елителя при делении на натуральное
 	virtual int firstDigOfDivByNat(MegaNaturalBase &ob) = 0;
 	//Описание: деление на натуральное
 	virtual void divByNat(MegaNaturalBase &ob) = 0;
