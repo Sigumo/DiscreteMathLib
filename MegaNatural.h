@@ -3,9 +3,9 @@
 class MegaNatural : MegaNaturalBase
 {
 public:
-	MegaNatural() : MegaNaturalBase();
-	MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase(ob);
-	~MegaNatural() : ~MegaNaturalBase();
+	MegaNatural();
+	MegaNatural(MegaNaturalBase &ob);
+	~MegaNatural();
 
 	//Описание: проверка, является ли число 0
 	//Возврат: (1/0)
