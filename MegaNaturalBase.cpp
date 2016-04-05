@@ -73,6 +73,6 @@ string MegaNaturalBase::toString()
 {
 	string temp;
 	for (int i = 0; i < nums.size(); i++)
-		temp+=nums[nums.size() - i];
+		temp+=(char)(nums[nums.size()-1 - i] + '0');
 	return temp;
 }
