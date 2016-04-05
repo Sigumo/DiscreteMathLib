@@ -1,4 +1,6 @@
 #include "MegaNaturalBase.h"
+#ifndef MEGA_NATURAL
+#define MEGA_NATURAL
 
 class MegaNatural : MegaNaturalBase
 {
@@ -9,22 +11,20 @@ public:
 
 	//Описание: проверка, является ли число 0
 	//Возврат: (1/0)
-	bool isZero() override;
+	bool isZero();
 	//Описание: умножение числа на цифру
-	void multByK(int k) override;
+	void multByK(int k);
 	//Описание: умножение числа на 10^k
-	void multByTenPowK(int k) override;
+	void multByTenPowK(int k);
 	//Описание: вычитание натурального, умноженного на цифру
-	void subNatMulK(MegaNaturalBase &ob, int k) override;
+	void subNatMulK(MegaNatural &ob, int k);
 	//Описание: первая цифра делителя при делении на натуральное
-	int firstDigOfDivByNat(MegaNaturalBase &ob) override;
+	int firstDigOfDivByNat(MegaNatural &ob);
 	//Описание: НОД натуральных
-	MegaNaturalBase &gcd(MegaNaturalBase &ob) override;
+	MegaNatural gcd(MegaNatural &ob1, MegaNatural &ob2);
 	//Описание: НОК натуральных
-	MegaNaturalBase &lcm(MegaNaturalBase &ob) override;
+	MegaNatural lcm(MegaNatural &ob1, MegaNatural &ob2);
 };
 
-#ifndef MEGA_NATURAL
-#define MEGA_NATURAL
 #include "MegaNatural.cpp"
 #endif

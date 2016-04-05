@@ -1,48 +1,48 @@
 #include <iostream>
 
-MegaNatural::MegaNatural() : MegaNaturalBase::MegaNaturalBase() {}
-MegaNatural::MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase::MegaNaturalBase(ob) {}
+MegaNatural::MegaNatural() : MegaNaturalBase() {}
+MegaNatural::MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase(ob) {}
 MegaNatural::~MegaNatural() {}
 
 //Описание: проверка, является ли число 0
 //Возврат: (1/0)
-bool MegaNatural::isZero() 
+bool isZero()
 {
 	return true;
 }
 
 //Описание: умножение числа на цифру
-void MegaNatural::multByK(int k)
+void multByK(int k)
 {
 
 }
 
 //Описание: умножение числа на 10^k
-void MegaNatural::multByTenPowK(int k)
+void multByTenPowK(int k)
 {
 
 }
 
 //Описание: вычитание натурального, умноженного на цифру
-void MegaNatural::subNatMulK(MegaNaturalBase &ob, int k)
+void subNatMulK(MegaNaturalBase &ob, int k)
 {
 
 }
 
 //Описание: первая цифра делителя при делении на натуральное
-int MegaNatural::firstDigOfDivByNat(MegaNaturalBase &ob)
+int firstDigOfDivByNat(MegaNaturalBase &ob)
 {
 	return 0;
 }
 
 //Описание: НОД натуральных
-MegaNaturalBase &MegaNatural::gcd(MegaNaturalBase &ob)
+MegaNatural gcd(MegaNatural &ob1, MegaNatural &ob2)
 {
-	return ob;
+	return ob1;
 }
 
 //Описание: НОК натуральных
-MegaNaturalBase &MegaNatural::lcm(MegaNaturalBase &ob)
+MegaNatural lcm(MegaNatural &ob1, MegaNatural &ob2)
 {
-	return ob;
+	return ob1;
 }
