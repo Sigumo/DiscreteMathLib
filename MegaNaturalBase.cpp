@@ -62,7 +62,10 @@ void MegaNaturalBase::addRank(int val)
 void MegaNaturalBase::deleteRank()
 {
 	if (nums.size() == 1)
-		std::cout << "Error. n = 0 in deleteRank.";
+		if (nums[0] == 0)
+			std::cout << "Error. n = 0 in deleteRank.";
+		else
+			nums[0] = 0;
 	else
 	{
 		nums.pop_back();
