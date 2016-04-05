@@ -16,6 +16,7 @@ public:
 	void setNumAt(int pos, int val);
 
 	void addRank(int val);
+	void MegaNaturalBase::addRankFront(int val);
 	void deleteRank();
 	std::string toString();
 	void clearFromZero();

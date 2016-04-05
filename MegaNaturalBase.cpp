@@ -59,6 +59,16 @@ void MegaNaturalBase::addRank(int val)
 	}
 }
 
+void MegaNaturalBase::addRankFront(int val)
+{
+	if (val < 0 || val > 9)
+		std::cout << "Error! Incorrect value in addRank.";
+	else
+	{
+		nums.push_front((uchar)val);
+	}
+}
+
 void MegaNaturalBase::deleteRank()
 {
 	if (nums.size() == 1)
