@@ -13,7 +13,11 @@ void MegaNatural::multByK(int k)
 //Описание: умножение числа на 10^k
 void MegaNatural::multByTenPowK(int k)
 {
-
+	if (k < 0)
+		cout << "Incorrect k in multByTenPowK" << endl;
+	else if (*this != 0)	
+		while (k--) 
+			addRankFront(0);
 }
 
 //Описание: вычитание натурального, умноженного на цифру
