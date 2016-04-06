@@ -12,9 +12,6 @@ public:
 	MegaNatural(std::string str);
 	~MegaNatural();
 
-	//Описание: проверка, является ли число 0
-	//Возврат: (1/0)
-	bool isZero();
 	//Описание: умножение числа на цифру
 	void multByK(int k);
 	//Описание: умножение числа на 10^k

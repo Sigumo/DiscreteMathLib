@@ -3,12 +3,6 @@ MegaNatural::MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase(ob) {}
 MegaNatural::MegaNatural(std::string str) : MegaNaturalBase(str) {}
 MegaNatural::~MegaNatural() {}
 
-//Описание: проверка, является ли число 0
-//Возврат: (1/0)
-bool MegaNatural::isZero()
-{
-	return true;
-}
 
 //Описание: умножение числа на цифру
 void MegaNatural::multByK(int k)
