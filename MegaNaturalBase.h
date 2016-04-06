@@ -1,6 +1,10 @@
 #ifndef MEGA_NATURAL_BASE
 #define MEGA_NATURAL_BASE
+
+#include <iostream>
+#include <malloc.h>
 #include <deque>
+#include <string>
 
 typedef unsigned char uchar;
 
@@ -9,6 +13,7 @@ class MegaNaturalBase
 public:
 	MegaNaturalBase();
 	MegaNaturalBase(MegaNaturalBase &ob);
+	MegaNaturalBase(std::string str);
 	~MegaNaturalBase();
 	
 	int getN();

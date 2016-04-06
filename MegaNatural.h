@@ -1,12 +1,15 @@
-#include "MegaNaturalBase.h"
 #ifndef MEGA_NATURAL
 #define MEGA_NATURAL
 
-class MegaNatural : MegaNaturalBase
+#include "MegaNaturalBase.h"
+#include <iostream>
+
+class MegaNatural : public MegaNaturalBase
 {
 public:
 	MegaNatural();
 	MegaNatural(MegaNaturalBase &ob);
+	MegaNatural(std::string str);
 	~MegaNatural();
 
 	//Описание: проверка, является ли число 0
@@ -24,6 +27,7 @@ public:
 	MegaNatural gcd(MegaNatural &ob1, MegaNatural &ob2);
 	//Описание: НОК натуральных
 	MegaNatural lcm(MegaNatural &ob1, MegaNatural &ob2);
+	//std::string toString();
 };
 
 #include "MegaNatural.cpp"

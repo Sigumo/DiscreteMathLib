@@ -1,7 +1,4 @@
-#include <iostream>
-#include <malloc.h>
-#include <deque>
-#include <string>
+
 
 using std::deque;
 using std::string;
@@ -13,6 +10,21 @@ MegaNaturalBase::MegaNaturalBase()
 MegaNaturalBase::MegaNaturalBase(MegaNaturalBase &ob)
 {	
 	nums = deque<uchar>(ob.nums);
+}
+MegaNaturalBase::MegaNaturalBase(string str)
+{
+	bool isInputCorrect = true;
+	for (int i = 0; i < str.length() && isInputCorrect; i++)
+	{
+		uchar c = (uchar)(str[i] - '0');
+		if (c > 9)
+		{
+			std::cout << "Error! Incorrect string in MegaNatural constructor.";
+			isInputCorrect = false;
+		}
+		else
+			nums.push_front(c);
+	}
 }
 
 MegaNaturalBase::~MegaNaturalBase()
