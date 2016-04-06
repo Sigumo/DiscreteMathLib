@@ -13,7 +13,7 @@ MegaInteger::MegaInteger(MegaInteger &ob)
 	isNegative = ob.isNegative;
 	num = MegaNatural(ob.num);
 }
-MegaInteger::MegaInteger(std::string str)
+MegaInteger::MegaInteger(string str)
 {
 	if (str[0] == '-')
 	{
@@ -27,14 +27,14 @@ MegaInteger::MegaInteger(std::string str)
 
 MegaInteger::~MegaInteger() {}
 
-std::ostream& operator<<(std::ostream &os, MegaInteger &ob)
+ostream& operator<<(ostream &os, MegaInteger &ob)
 {
 	os << ob.toString();
 	return os;
 }
 
-std::string MegaInteger::toString()
+string MegaInteger::toString()
 {
-	std::string str = (isNegative ? "-" : "") + num.toString();
+	string str = (isNegative ? "-" : "") + num.toString();
 	return str;
 }

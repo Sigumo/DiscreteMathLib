@@ -7,13 +7,14 @@
 #include <string>
 
 typedef unsigned char uchar;
+using namespace std;
 
 class MegaNaturalBase
 {
 public:
 	MegaNaturalBase();
 	MegaNaturalBase(MegaNaturalBase &ob);
-	MegaNaturalBase(std::string str);
+	MegaNaturalBase(string str);
 	~MegaNaturalBase();
 	
 	int getN();
@@ -23,11 +24,11 @@ public:
 	void addRank(int val);
 	void MegaNaturalBase::addRankFront(int val);
 	void deleteRank();
-	std::string toString();
+	string toString();
 	void clearFromZero();
 
 private:
-	std::deque<uchar> nums;
+	deque<uchar> nums;
 };
 
 #include "MegaNaturalBase.cpp"

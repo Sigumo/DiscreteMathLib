@@ -4,20 +4,22 @@
 #include "MegaNatural.h"
 #include <string>
 
+using namespace std;
+
 class MegaInteger 
 {
 public:
 	MegaInteger();
 	MegaInteger(MegaNatural &ob);
 	MegaInteger(MegaInteger &ob);
-	MegaInteger(std::string);
+	MegaInteger(string);
 	~MegaInteger();
 
 	//Описание: модуль числа
 	MegaInteger abs();
 	//Описание: преобразование целого в натуральное
 	MegaNatural toMegaNatural();
-	std::string toString();
+	string toString();
 private:
 	MegaNatural num;
 	bool isNegative;

@@ -4,6 +4,8 @@
 #include "MegaNaturalBase.h"
 #include <iostream>
 
+using namespace std;
+
 class MegaNatural : public MegaNaturalBase
 {
 public:
