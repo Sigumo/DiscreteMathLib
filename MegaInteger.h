@@ -13,9 +13,9 @@ public:
 	MegaInteger(std::string);
 	~MegaInteger();
 
-	//Описание: модуль числа
+	//РћРїРёСЃР°РЅРёРµ: РјРѕРґСѓР»СЊ С‡РёСЃР»Р°
 	MegaInteger abs();
-	//Описание: преобразование целого в натуральное
+	//РћРїРёСЃР°РЅРёРµ: РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ С†РµР»РѕРіРѕ РІ РЅР°С‚СѓСЂР°Р»СЊРЅРѕРµ
 	MegaNatural toMegaNatural();
 	std::string toString();
 private:

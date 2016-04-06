@@ -1,40 +1,40 @@
-MegaNatural::MegaNatural() : MegaNaturalBase() {}
+п»їMegaNatural::MegaNatural() : MegaNaturalBase() {}
 MegaNatural::MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase(ob) {}
 MegaNatural::MegaNatural(std::string str) : MegaNaturalBase(str) {}
 MegaNatural::~MegaNatural() {}
 
 
-//Описание: умножение числа на цифру
+//РћРїРёСЃР°РЅРёРµ: СѓРјРЅРѕР¶РµРЅРёРµ С‡РёСЃР»Р° РЅР° С†РёС„СЂСѓ
 void MegaNatural::multByK(int k)
 {
 
 }
 
-//Описание: умножение числа на 10^k
+//РћРїРёСЃР°РЅРёРµ: СѓРјРЅРѕР¶РµРЅРёРµ С‡РёСЃР»Р° РЅР° 10^k
 void MegaNatural::multByTenPowK(int k)
 {
 
 }
 
-//Описание: вычитание натурального, умноженного на цифру
+//РћРїРёСЃР°РЅРёРµ: РІС‹С‡РёС‚Р°РЅРёРµ РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ, СѓРјРЅРѕР¶РµРЅРЅРѕРіРѕ РЅР° С†РёС„СЂСѓ
 void MegaNatural::subNatMulK(MegaNatural &ob, int k)
 {
 
 }
 
-//Описание: первая цифра делителя при делении на натуральное
+//РћРїРёСЃР°РЅРёРµ: РїРµСЂРІР°СЏ С†РёС„СЂР° РґРµР»РёС‚РµР»СЏ РїСЂРё РґРµР»РµРЅРёРё РЅР° РЅР°С‚СѓСЂР°Р»СЊРЅРѕРµ
 int MegaNatural::firstDigOfDivByNat(MegaNatural &ob)
 {
 	return 0;
 }
 
-//Описание: НОД натуральных
+//РћРїРёСЃР°РЅРёРµ: РќРћР” РЅР°С‚СѓСЂР°Р»СЊРЅС‹С…
 MegaNatural MegaNatural::gcd(MegaNatural &ob1, MegaNatural &ob2)
 {
 	return ob1;
 }
 
-//Описание: НОК натуральных
+//РћРїРёСЃР°РЅРёРµ: РќРћРљ РЅР°С‚СѓСЂР°Р»СЊРЅС‹С…
 MegaNatural MegaNatural::lcm(MegaNatural &ob1, MegaNatural &ob2)
 {
 	return ob1;
