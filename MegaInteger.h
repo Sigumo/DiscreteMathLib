@@ -1,4 +1,4 @@
-#ifndef MEGA_INTEGER
+﻿#ifndef MEGA_INTEGER
 #define MEGA_INTEGER
 
 #include "MegaNatural.h"
@@ -20,6 +20,8 @@ public:
 	//Описание: преобразование целого в натуральное
 	MegaNatural toMegaNatural();
 	string toString();
+
+	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2);
 private:
 	MegaNatural num;
 	bool isNegative;

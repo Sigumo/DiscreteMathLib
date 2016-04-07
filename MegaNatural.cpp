@@ -15,7 +15,7 @@ MegaNatural::MegaNatural(string str)
 		uchar c = (uchar)(str[i] - '0');
 		if (c > 9)
 		{
-			std::cout << "Error! Incorrect string in MegaNatural constructor.";
+			cout << "Error! Incorrect string in MegaNatural constructor.";
 			isInputCorrect = false;
 		}
 		else
@@ -42,15 +42,27 @@ string MegaNatural::toString()
 }
 
 //Описание: умножение на цифру
-void mulByK(long long k) {}
+void MegaNatural::mulByK(long long k) {}
 
 //Описание: умножение на 10^k
-void mulByTenPowK(long long k) {}
+void MegaNatural::mulByTenPowK(long long k) 
+{
+	if (k < 0)
+		cout << "Error! Incorrect pow in multByTenPowK.";
+	else if (*this != 0) //!= (MegaNatural)0?
+		while (k--)
+			nums.push_front(0);
+}
 
 //Описание: вычитание натурального, умноженного на цифру
-void subNatMulK(const MegaNatural &ob, long long k) {}
+void MegaNatural::subNatMulK(const MegaNatural &ob, long long k) {}
 
 bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
+{
+	return false;
+}
+
+bool operator !=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	return false;
 }
