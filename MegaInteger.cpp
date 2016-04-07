@@ -1,4 +1,4 @@
-MegaInteger::MegaInteger()
+﻿MegaInteger::MegaInteger()
 {
 	isNegative = false;
 	num = MegaNatural();
