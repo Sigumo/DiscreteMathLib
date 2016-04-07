@@ -1,4 +1,4 @@
-#include "MegaNatural.h"
+п»ї#include "MegaNatural.h"
 MegaNatural::MegaNatural()
 {
 	nums.push_back((uchar)0);
@@ -41,13 +41,13 @@ string MegaNatural::toString()
 	return temp;
 }
 
-//Описание: умножение на цифру
+//СњРїРёСЃР°РЅРёРµ: СѓРјРЅРѕР¶РµРЅРёРµ РЅР° С†РёС„СЂСѓ
 void mulByK(long long k) {}
 
-//Описание: умножение на 10^k
+//СњРїРёСЃР°РЅРёРµ: СѓРјРЅРѕР¶РµРЅРёРµ РЅР° 10^k
 void mulByTenPowK(long long k) {}
 
-//Описание: вычитание натурального, умноженного на цифру
+//СњРїРёСЃР°РЅРёРµ: РІС‹С‡РёС‚Р°РЅРёРµ РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ, СѓРјРЅРѕР¶РµРЅРЅРѕРіРѕ РЅР° С†РёС„СЂСѓ
 void subNatMulK(const MegaNatural &ob, long long k) {}
 
 bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
