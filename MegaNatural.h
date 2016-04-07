@@ -1,32 +1,50 @@
-#ifndef MEGA_NATURAL
-#define MEGA_NATURAL
+#ifndef MEGA_NATURAL_BASE
+#define MEGA_NATURAL_BASE
 
-#include "MegaNaturalBase.h"
 #include <iostream>
+#include <malloc.h>
+#include <deque>
+#include <string>
 
+typedef unsigned char uchar;
 using namespace std;
 
-class MegaNatural : public MegaNaturalBase
+class MegaNatural
 {
 public:
 	MegaNatural();
-	MegaNatural(MegaNaturalBase &ob);
-	MegaNatural(std::string str);
+	MegaNatural(MegaNatural &ob);
+	MegaNatural(string str);
 	~MegaNatural();
 
-	//Описание: умножение числа на цифру
-	void multByK(int k);
-	//Описание: умножение числа на 10^k
-	void multByTenPowK(int k);
-	//Описание: вычитание натурального, умноженного на цифру
-	void subNatMulK(MegaNatural &ob, int k);
-	//Описание: первая цифра делителя при делении на натуральное
-	int firstDigOfDivByNat(MegaNatural &ob);
-	//Описание: НОД натуральных
-	MegaNatural gcd(MegaNatural &ob1, MegaNatural &ob2);
-	//Описание: НОК натуральных
-	MegaNatural lcm(MegaNatural &ob1, MegaNatural &ob2);
+	friend ostream& operator<<(ostream &os, MegaNatural &ob);
+	friend bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend bool operator <(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend bool operator >(const MegaNatural &ob1, const MegaNatural &ob2);
+	MegaNatural& operator =(const MegaNatural &ob);
+	MegaNatural& operator =(const long long a);
+	friend MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2);
+	friend MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2);
+	friend MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2);
+	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2);
+	friend MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2);
+
+	string toString();
+
+private:
+	deque<uchar> nums;
+
+	//��������: ��������� �� �����
+	void mulByK(long long k);
+	//��������: ��������� �� 10^k
+	void mulByTenPowK(long long k);
+	//��������: ��������� ������������, ����������� �� �����
+	void subNatMulK(const MegaNatural &ob, long long k);
 };
 
 #include "MegaNatural.cpp"
 #endif
+
+

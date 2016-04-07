@@ -1,45 +1,118 @@
-﻿MegaNatural::MegaNatural() : MegaNaturalBase() {}
-MegaNatural::MegaNatural(MegaNaturalBase &ob) : MegaNaturalBase(ob) {}
-MegaNatural::MegaNatural(std::string str) : MegaNaturalBase(str) {}
-MegaNatural::~MegaNatural() {}
-
-
-//Описание: умножение числа на цифру
-void MegaNatural::multByK(int k)
+#include "MegaNatural.h"
+MegaNatural::MegaNatural()
 {
-
+	nums.push_back((uchar)0);
+}
+MegaNatural::MegaNatural(MegaNatural &ob)
+{	
+	nums = deque<uchar>(ob.nums);
+}
+MegaNatural::MegaNatural(string str)
+{
+	bool isInputCorrect = true;
+	for (int i = 0; i < str.length() && isInputCorrect; i++)
+	{
+		uchar c = (uchar)(str[i] - '0');
+		if (c > 9)
+		{
+			std::cout << "Error! Incorrect string in MegaNatural constructor.";
+			isInputCorrect = false;
+		}
+		else
+			nums.push_front(c);
+	}
 }
 
-//Описание: умножение числа на 10^k
-void MegaNatural::multByTenPowK(int k)
+MegaNatural::~MegaNatural()
 {
-	if (k < 0)
-		cout << "Incorrect k in multByTenPowK" << endl;
-	else if (*this != 0)	
-		while (k--) 
-			addRankFront(0);
 }
 
-//Описание: вычитание натурального, умноженного на цифру
-void MegaNatural::subNatMulK(MegaNatural &ob, int k)
+ostream& operator<<(std::ostream &os,MegaNatural &ob)
 {
-
+	os << ob.toString();
+	return os;
 }
 
-//Описание: первая цифра делителя при делении на натуральное
-int MegaNatural::firstDigOfDivByNat(MegaNatural &ob)
+string MegaNatural::toString()
 {
-	return 0;
+	string temp;
+	for (int i = 0; i < nums.size(); i++)
+		temp+=(char)(nums[nums.size()-1 - i] + '0');
+	return temp;
 }
 
-//Описание: НОД натуральных
-MegaNatural MegaNatural::gcd(MegaNatural &ob1, MegaNatural &ob2)
+//��������: ��������� �� �����
+void mulByK(long long k) {}
+
+//��������: ��������� �� 10^k
+void mulByTenPowK(long long k) {}
+
+//��������: ��������� ������������, ����������� �� �����
+void subNatMulK(const MegaNatural &ob, long long k) {}
+
+bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
 {
+	return false;
+}
+
+bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2)
+{
+	return false;
+}
+
+bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2)
+{
+	return false;
+}
+
+bool operator <(const MegaNatural &ob1, const MegaNatural &ob2)
+{
+	return false;
+}
+
+bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
+{
+	return false;
+}
+
+MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
+{
+	MegaNatural ob1;
 	return ob1;
 }
 
-//Описание: НОК натуральных
-MegaNatural MegaNatural::lcm(MegaNatural &ob1, MegaNatural &ob2)
+MegaNatural& MegaNatural::operator =(const long long a)
 {
-	return ob1;
+	MegaNatural ob;
+	return ob;
+}
+
+MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
+{
+	MegaNatural ob;
+	return ob;
+}
+
+MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
+{
+	MegaNatural ob;
+	return ob;
+}
+
+MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
+{
+	MegaNatural ob;
+	return ob;
+}
+
+MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2)
+{
+	MegaNatural ob;
+	return ob;
+}
+
+MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2)
+{
+	MegaNatural ob;
+	return ob;
 }
