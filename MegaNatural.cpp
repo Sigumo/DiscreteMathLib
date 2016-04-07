@@ -107,8 +107,57 @@ MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
 
 MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob;
-	return ob;
+	MegaNatural res, tmp;
+	unsigned int i = 0, j = 0;
+	res = ob1;
+	tmp = ob2;
+	deque<uchar>::iterator iter1 = res.nums.end();
+	deque<uchar>::iterator iter;
+	deque<uchar>::iterator iter2 = tmp.nums.end();
+	if(res < ob2)
+	{
+		cout << "Resulting value isn't natural" << endl;
+		return res;
+	}
+	if(res == ob2)
+	{
+		for(i = 1; i < res.nums.size(); i++)
+		{
+			res.nums.pop_back();
+		}
+		res.nums[0] = 0;
+		return res;
+	}
+	if(ob1 > ob2)
+	{
+		for(i = 0; i < ob1.nums.size(); i++)
+		{
+			if(j > ob2.nums.size())
+			{
+				break;
+			}
+			if(*iter1 >= *iter2)
+			{
+				*iter1 = *iter1 - *iter2;
+				iter1--;
+				iter2--;
+			}
+			else if(*iter1 < *iter2)
+			{
+				*iter1 = (*iter1 + 10) - *iter2;
+				*(iter1 - 1) = *(iter1 - 1) - 1;
+				iter1--;
+				iter2--;
+			}
+			j++;
+		}
+		iter = res.nums.begin();
+		while(*iter == 0)
+			{
+				res.nums.pop_front();
+			}
+		return res;
+	}
 }
 
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
