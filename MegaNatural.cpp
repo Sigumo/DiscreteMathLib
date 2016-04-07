@@ -41,6 +41,7 @@ string MegaNatural::toString()
 	return temp;
 }
 
+<<<<<<< HEAD
 //ќписание: умножение на цифру
 void mulByK(long long k) {}
 
@@ -49,8 +50,30 @@ void mulByTenPowK(long long k) {}
 
 //ќписание: вычитание натурального, умноженного на цифру
 void subNatMulK(const MegaNatural &ob, long long k) {}
+=======
+//��������: ��������� �� �����
+void MegaNatural::mulByK(long long k) {}
+
+//��������: ��������� �� 10^k
+void MegaNatural::mulByTenPowK(long long k) 
+{
+	if (k < 0)
+		cout << "Error! Incorrect pow in multByTenPowK.";
+	else if (*this != 0) //!= (MegaNatural)0?
+		while (k--)
+			nums.push_front(0);
+}
+
+//��������: ��������� ������������, ����������� �� �����
+void MegaNatural::subNatMulK(const MegaNatural &ob, long long k) {}
+>>>>>>> origin/master
 
 bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
+{
+	return false;
+}
+
+bool operator !=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	return false;
 }
