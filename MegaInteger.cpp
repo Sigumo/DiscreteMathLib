@@ -38,3 +38,17 @@ string MegaInteger::toString()
 	string str = (isNegative ? "-" : "") + num.toString();
 	return str;
 }
+
+MegaNatural operator %(const MegaInteger &ob1, const MegaInteger ob2)
+{	
+	if (ob2 == 0)
+	{
+		cout << "Error! Incorrect divisor in operation %.";
+		return 0;
+	}
+
+	MegaNatural ob( ob1.abs.toMegaNatural() % ob2.abs.toMegaNatural() );
+	if (ob1.isNegative)
+		ob = ob2.abs - ob;
+	return ob;
+}
