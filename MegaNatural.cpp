@@ -47,21 +47,16 @@ void MegaNatural::mulByK(long long k) {}
 //Описание: умножение на 10^k
 void MegaNatural::mulByTenPowK(long long k) 
 {
-	if (k < 0)
-		cout << "Error! Incorrect pow in multByTenPowK.";
-	else if (*this != 0) //!= (MegaNatural)0?
-		while (k--)
-			nums.push_front(0);
-}
-
-//Описание: количество делителей - десяток 
-long long MegaNatural::tenDivisiorCt()
-{
-	long long ct = 0;
-	deque<uchar>::iterator it;
-	for (it = nums.begin(); it < nums.end() && *it == 0; it++)
-		ct++;
-	return ct;
+	if (*this != 0)
+		if (k < 0)
+			while (k++ && *this != 0)
+				if (nums.size() > 1)
+					nums.pop_front();
+				else
+					nums[0] = 0;
+		else 
+			while (k--)
+				nums.push_front(0);
 }
 
 //Описание: вычитание натурального, умноженного на цифру
