@@ -3,7 +3,7 @@ MegaNatural::MegaNatural()
 {
 	nums.push_back((uchar)0);
 }
-MegaNatural::MegaNatural(MegaNatural &ob)
+MegaNatural::MegaNatural(const MegaNatural &ob)
 {	
 	nums = deque<uchar>(ob.nums);
 }

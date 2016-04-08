@@ -1,4 +1,4 @@
-#ifndef MEGA_NATURAL_BASE
+﻿#ifndef MEGA_NATURAL_BASE
 #define MEGA_NATURAL_BASE
 
 #include <iostream>
@@ -13,7 +13,7 @@ class MegaNatural
 {
 public:
 	MegaNatural();
-	MegaNatural(MegaNatural &ob);
+	MegaNatural(const MegaNatural &ob);
 	MegaNatural(string str);
 	~MegaNatural();
 
