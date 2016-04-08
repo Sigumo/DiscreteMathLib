@@ -89,8 +89,8 @@ bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
 
 MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
 {
-	MegaNatural ob1;
-	return ob1;
+   this->nums = deque<uchar>(ob.nums);
+   return *this;
 }
 
 MegaNatural& MegaNatural::operator =(const long long a)
@@ -101,8 +101,33 @@ MegaNatural& MegaNatural::operator =(const long long a)
 
 MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob;
-	return ob;
+   MegaNatural res;
+   const MegaNatural* max_obj = (a.nums.size() >= b.nums.size()) ? &a : &b;
+   const MegaNatural* min_obj = (a.nums.size() <= b.nums.size()) ? &a : &b;
+
+   res = *max_obj;
+   res.nums.push_back(0);
+
+   for (int i = 0; i < min_obj->nums.size(); i++)
+   {
+	  res.nums[i] += min_obj->nums[i];
+	  if (res.nums[i] >= 10)
+	  {
+		 res.nums[i] %= 10;
+		 res.nums[i + 1] += 1;
+	  }
+   }
+
+   for (int i = min_obj->nums.size(); res.nums[i] >= 10 && i < max_obj->nums.size(); i++)
+   {
+	  res.nums[i] %= 10;
+	  res.nums[i + 1] += 1;
+   }
+
+   if (res.nums[res.nums.size() - 1] == 0)
+	  res.nums.pop_back();
+
+   return res;
 }
 
 MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
