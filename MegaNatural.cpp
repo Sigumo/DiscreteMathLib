@@ -154,6 +154,7 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 		iter = res.nums.begin();
 		while(*iter == 0)
 			{
+				iter++;
 				res.nums.pop_front();
 			}
 		return res;
@@ -162,8 +163,46 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob;
-	return ob;
+	MegaNatural res;
+	if(ob1 < ob2)
+	{
+		return res;
+	}
+	deque<uchar>::iterator iter;
+	res.nums.push_front(0);
+	while(ob1 >= ob2)
+	{
+		ob1 = ob1 - ob2;
+		for (iter = res.nums.end(); iter != res.nums.begin(); iter--)
+		{
+			if(*iter >= 0 && *iter < 9)
+			{
+				*iter = *iter + 1;
+				break;
+			}
+			if(*iter == 9)
+			{
+				*iter = 0;
+				if(*(iter - 1) == 9)
+					{
+						continue;
+					}
+				*(iter - 1) = *(iter - 1) + 1;
+				if(*(iter - 1) == res.nums.begin())
+				{
+					res.nums.push_front(0);
+				}
+
+			}
+		}
+	}
+	iter = res.nums.begin();
+		while(*iter == 0)
+			{
+				iter++;
+				res.nums.pop_front();
+			}
+	return res;
 }
 
 MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2)
