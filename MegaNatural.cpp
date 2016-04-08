@@ -1,4 +1,4 @@
-#include "MegaNatural.h"
+ï»¿#include "MegaNatural.h"
 MegaNatural::MegaNatural()
 {
 	nums.push_back((uchar)0);
@@ -15,7 +15,7 @@ MegaNatural::MegaNatural(string str)
 		uchar c = (uchar)(str[i] - '0');
 		if (c > 9)
 		{
-			cout << "Error! Incorrect string in MegaNatural constructor.";
+			std::cout << "Error! Incorrect string in MegaNatural constructor.";
 			isInputCorrect = false;
 		}
 		else
@@ -41,10 +41,10 @@ string MegaNatural::toString()
 	return temp;
 }
 
-//Îïèñàíèå: óìíîæåíèå íà öèôğó
+//ĞĞ¿Ğ¸ÑĞ°Ğ½Ğ¸Ğµ: ÑƒĞ¼Ğ½Ğ¾Ğ¶ĞµĞ½Ğ¸Ğµ Ğ½Ğ° Ñ†Ğ¸Ñ„Ñ€Ñƒ
 void MegaNatural::mulByK(long long k) {}
 
-//Îïèñàíèå: óìíîæåíèå íà 10^k
+//ĞĞ¿Ğ¸ÑĞ°Ğ½Ğ¸Ğµ: ÑƒĞ¼Ğ½Ğ¾Ğ¶ĞµĞ½Ğ¸Ğµ Ğ½Ğ° 10^k
 void MegaNatural::mulByTenPowK(long long k) 
 {
 	if (k < 0)
@@ -54,7 +54,7 @@ void MegaNatural::mulByTenPowK(long long k)
 			nums.push_front(0);
 }
 
-//Îïèñàíèå: âû÷èòàíèå íàòóğàëüíîãî, óìíîæåííîãî íà öèôğó
+//ĞĞ¿Ğ¸ÑĞ°Ğ½Ğ¸Ğµ: Ğ²Ñ‹Ñ‡Ğ¸Ñ‚Ğ°Ğ½Ğ¸Ğµ Ğ½Ğ°Ñ‚ÑƒÑ€Ğ°Ğ»ÑŒĞ½Ğ¾Ğ³Ğ¾, ÑƒĞ¼Ğ½Ğ¾Ğ¶ĞµĞ½Ğ½Ğ¾Ğ³Ğ¾ Ğ½Ğ° Ñ†Ğ¸Ñ„Ñ€Ñƒ
 void MegaNatural::subNatMulK(const MegaNatural &ob, long long k) {}
 
 bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
@@ -107,8 +107,57 @@ MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
 
 MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob;
-	return ob;
+	MegaNatural res, tmp;
+	unsigned int i = 0, j = 0;
+	res = ob1;
+	tmp = ob2;
+	deque<uchar>::iterator iter1 = res.nums.end();
+	deque<uchar>::iterator iter;
+	deque<uchar>::iterator iter2 = tmp.nums.end();
+	if(res < ob2)
+	{
+		cout << "Resulting value isn't natural" << endl;
+		return res;
+	}
+	if(res == ob2)
+	{
+		for(i = 1; i < res.nums.size(); i++)
+		{
+			res.nums.pop_back();
+		}
+		res.nums[0] = 0;
+		return res;
+	}
+	if(ob1 > ob2)
+	{
+		for(i = 0; i < ob1.nums.size(); i++)
+		{
+			if(j > ob2.nums.size())
+			{
+				break;
+			}
+			if(*iter1 >= *iter2)
+			{
+				*iter1 = *iter1 - *iter2;
+				iter1--;
+				iter2--;
+			}
+			else if(*iter1 < *iter2)
+			{
+				*iter1 = (*iter1 + 10) - *iter2;
+				*(iter1 - 1) = *(iter1 - 1) - 1;
+				iter1--;
+				iter2--;
+			}
+			j++;
+		}
+		iter = res.nums.begin();
+		while(*iter == 0)
+			{
+				res.nums.pop_front();
+			}
+		return res;
+	}
 }
 
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
