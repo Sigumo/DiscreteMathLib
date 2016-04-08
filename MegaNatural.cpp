@@ -54,6 +54,16 @@ void MegaNatural::mulByTenPowK(long long k)
 			nums.push_front(0);
 }
 
+//Описание: количество делителей - десяток 
+long long MegaNatural::tenDivisiorCt()
+{
+	long long ct = 0;
+	deque<uchar>::iterator it;
+	for (it = nums.begin(); it < nums.end() && *it == 0; it++)
+		ct++;
+	return ct;
+}
+
 //Описание: вычитание натурального, умноженного на цифру
 void MegaNatural::subNatMulK(const MegaNatural &ob, long long k) {}
 

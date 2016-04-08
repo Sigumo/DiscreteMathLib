@@ -16,6 +16,9 @@ public:
 	MegaNatural(const MegaNatural &ob);
 	MegaNatural(string str);
 	~MegaNatural();
+	
+	void mulByTenPowK(long long k);
+	long long tenDivisiorCt();
 
 	friend ostream& operator<<(ostream &os, MegaNatural &ob);
 	friend bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2);
@@ -32,14 +35,14 @@ public:
 	friend MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2);
 
 	string toString();
-
+	
+	
 private:
 	deque<uchar> nums;
 
 	//Описание: умножение на цифру
 	void mulByK(long long k);
-	//Описание: умножение на 10^k
-	void mulByTenPowK(long long k);
+	
 	//Описание: вычитание натурального, умноженного на цифру
 	void subNatMulK(const MegaNatural &ob, long long k);
 };
