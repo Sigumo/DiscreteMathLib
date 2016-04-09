@@ -15,6 +15,7 @@ public:
 	MegaNatural();
 	MegaNatural(const MegaNatural &ob);
 	MegaNatural(string str);
+	MegaNatural(unsigned long long l);
 	~MegaNatural();
 	
 	void mulByTenPowK(long long k);

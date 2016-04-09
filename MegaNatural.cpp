@@ -7,6 +7,19 @@ MegaNatural::MegaNatural(const MegaNatural &ob)
 {	
 	nums = deque<uchar>(ob.nums);
 }
+MegaNatural::MegaNatural(unsigned long long l)
+{
+	if (nums.size() == 0)
+		nums.push_back((uchar)0);
+
+	nums.at(0) = l % 10;
+	l = l / 10;
+	while (l>0)
+	{
+		nums.push_back(l % 10);
+		l = l / 10;
+	};
+}
 MegaNatural::MegaNatural(string str)
 {
 	bool isInputCorrect = true;
@@ -46,7 +59,6 @@ string MegaNatural::toString()
 void MegaNatural::mulByK(long long k) {}
 
 //Описание: умножение на 10^k
-//not finished
 void MegaNatural::mulByTenPowK(long long k) 
 {
 	if (*this != 0)
@@ -94,7 +106,6 @@ int MegaNatural::firstDigOfDivByNat(const MegaNatural &ob)
 	return i - 1;
 }
 
-//not tested
 bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
@@ -127,7 +138,6 @@ bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
 	return false;
 }
 
-//not tested
 bool operator !=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
@@ -160,7 +170,6 @@ bool operator !=(const MegaNatural &ob1, const MegaNatural &ob2)
 	return false;
 }
 
-//not tested
 bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
@@ -189,7 +198,7 @@ bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2)
 	return 1;
 }
 
-//not tested
+//not working
 bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	int len2 = ob1.nums.size(), len1 = ob2.nums.size();
@@ -218,7 +227,7 @@ bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2)
 	return 1;
 }
 
-//not tested
+//not working
 bool operator <(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	int len2 = ob1.nums.size(), len1 = ob2.nums.size();
@@ -247,7 +256,6 @@ bool operator <(const MegaNatural &ob1, const MegaNatural &ob2)
 	return 0;
 }
 
-//not tested
 bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
@@ -276,21 +284,7 @@ bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
 	return 0;
 }
 
-//not tested
-MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
-{
-   this->nums = deque<uchar>(ob.nums);
-   return *this;
-}
-
-//not finished
-MegaNatural& MegaNatural::operator =(const long long a)
-{
-	MegaNatural ob;
-	return ob;
-}
-
-//not tested
+//not working
 MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
 {
    MegaNatural res;
@@ -322,7 +316,7 @@ MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
    return res;
 }
 
-//not tested
+//not working
 MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 {
 	MegaNatural res, tmp;
@@ -379,7 +373,7 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 	}
 }
 
-//not tested
+//not working
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 {
 	MegaNatural res;
