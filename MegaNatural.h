@@ -1,4 +1,4 @@
-#ifndef MEGA_NATURAL_BASE
+﻿#ifndef MEGA_NATURAL_BASE
 #define MEGA_NATURAL_BASE
 
 #include <iostream>
@@ -13,18 +13,22 @@ class MegaNatural
 {
 public:
 	MegaNatural();
-	MegaNatural(MegaNatural &ob);
+	MegaNatural(const MegaNatural &ob);
 	MegaNatural(string str);
+	MegaNatural(unsigned long long l);
 	~MegaNatural();
+	
+	void mulByTenPowK(long long k);
+	long long tenDivisiorCt();
 
 	friend ostream& operator<<(ostream &os, MegaNatural &ob);
 	friend bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend bool operator !=(const MegaNatural &ob1, const MegaNatural &ob2);
 	friend bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2);
 	friend bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2);
 	friend bool operator <(const MegaNatural &ob1, const MegaNatural &ob2);
 	friend bool operator >(const MegaNatural &ob1, const MegaNatural &ob2);
 	MegaNatural& operator =(const MegaNatural &ob);
-	MegaNatural& operator =(const long long a);
 	friend MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2);
 	friend MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2);
 	friend MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2);
@@ -32,16 +36,18 @@ public:
 	friend MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2);
 
 	string toString();
-
+	
+	
 private:
 	deque<uchar> nums;
-
+	
 	//Описание: умножение на цифру
-	void mulByK(long long k);
-	//Описание: умножение на 10^k
-	void mulByTenPowK(long long k);
+	void mulByK(uchar k);
+	
 	//Описание: вычитание натурального, умноженного на цифру
 	void subNatMulK(const MegaNatural &ob, long long k);
+
+	int firstDigOfDivByNat(const MegaNatural &ob);
 };
 
 #include "MegaNatural.cpp"
