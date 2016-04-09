@@ -54,6 +54,13 @@ string MegaNatural::toString()
 	return temp;
 }
 
+//not tested
+MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
+{
+	this->nums = deque<uchar>(ob.nums);
+	return *this;
+}
+
 //Описание: умножение на цифру
 void MegaNatural::mulByK(uchar k)
 {
@@ -306,12 +313,12 @@ bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
 	return 0;
 }
 
-//not working
+//not tested
 MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
 {
    MegaNatural res;
-   const MegaNatural* max_obj = (a.nums.size() >= b.nums.size()) ? &a : &b;
-   const MegaNatural* min_obj = (a.nums.size() <= b.nums.size()) ? &a : &b;
+   const MegaNatural* max_obj = (ob1.nums.size() >= ob2.nums.size()) ? &ob1 : &ob2;
+   const MegaNatural* min_obj = (ob1.nums.size() < ob2.nums.size()) ? &ob1 : &ob2;
 
    res = *max_obj;
    res.nums.push_back(0);
