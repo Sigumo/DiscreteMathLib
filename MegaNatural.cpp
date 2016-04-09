@@ -171,9 +171,9 @@ MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 	}
 	deque<uchar>::iterator iter;
 	res.nums.push_front(0);
-	while(ob1 >= ob2)
+	while(ob >= ob2)
 	{
-		ob = ob1 - ob2;
+		ob = ob - ob2;
 		for (iter = res.nums.end(); iter != res.nums.begin(); iter--)
 		{
 			if(*iter >= 0 && *iter < 9)
