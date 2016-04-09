@@ -42,7 +42,30 @@ string MegaNatural::toString()
 }
 
 //Описание: умножение на цифру
-void MegaNatural::mulByK(long long k) {}
+void MegaNatural::mulByK(uchar k) 
+{
+	if (k == 0)
+	{
+		while (nums.size() > 1)
+			nums.pop_back();
+		nums[0] = 0;
+	}
+	else
+	{
+		uchar temp = 0;
+		long long lng = nums.size();
+		for (int i = 0; i < lng; i++)
+		{
+			nums[i] = nums[i]*k + temp;
+			if (i == lng - 1 && nums[i] / 10)
+				nums.push_back(nums[i] / 10);
+			else
+				temp = nums[i] / 10;
+			nums[i] %= 10;
+		}
+	}
+}
+
 
 //Описание: умножение на 10^k
 void MegaNatural::mulByTenPowK(long long k) 
