@@ -405,7 +405,8 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 //not working
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural res;
+	MegaNatural res, ob;
+	ob = ob1;
 	if(ob1 < ob2)
 	{
 		return res;
@@ -414,7 +415,7 @@ MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 	res.nums.push_front(0);
 	while(ob1 >= ob2)
 	{
-		ob1 = ob1 - ob2;
+		ob = ob1 - ob2;
 		for (iter = res.nums.end(); iter != res.nums.begin(); iter--)
 		{
 			if(*iter >= 0 && *iter < 9)
@@ -430,7 +431,7 @@ MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 						continue;
 					}
 				*(iter - 1) = *(iter - 1) + 1;
-				if(*(iter - 1) == res.nums.begin())
+				if((iter - 1) == res.nums.begin())
 				{
 					res.nums.push_front(0);
 				}
