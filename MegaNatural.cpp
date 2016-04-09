@@ -55,8 +55,7 @@ string MegaNatural::toString()
 }
 
 //Описание: умножение на цифру
-//not finished
-void MegaNatural::mulByK(long long k) {}
+void MegaNatural::mulByK(uchar k)
 {
 	if (k == 0)
 	{
