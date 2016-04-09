@@ -205,8 +205,7 @@ MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 
 MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob;
-	return ob;
+	return ob1 - ob2 * (ob1 / ob2);
 }
 
 MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2)
