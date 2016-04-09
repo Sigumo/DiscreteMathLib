@@ -27,5 +27,5 @@ static MegaNatural gcd(const MegaNatural &a, const MegaNatural &b)
 
 static MegaNatural lcm(const MegaNatural &a, const MegaNatural &b)
 {
-	return nullptr;
+	return a * b / gcd(a,b);
 }
