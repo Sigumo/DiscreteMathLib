@@ -452,6 +452,11 @@ MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2)
 {
 	MegaNatural ob;
+	ob = ob1;
+	while(ob > ob2)
+	{
+		ob = ob - ob2;
+	}
 	return ob;
 }
 
