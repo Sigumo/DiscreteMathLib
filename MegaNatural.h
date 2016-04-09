@@ -43,7 +43,7 @@ private:
 	deque<uchar> nums;
 	
 	//Описание: умножение на цифру
-	void mulByK(long long k);
+	void mulByK(uchar k);
 	
 	//Описание: вычитание натурального, умноженного на цифру
 	void subNatMulK(const MegaNatural &ob, long long k);
