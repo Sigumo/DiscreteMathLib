@@ -7,6 +7,19 @@ MegaNatural::MegaNatural(const MegaNatural &ob)
 {	
 	nums = deque<uchar>(ob.nums);
 }
+MegaNatural::MegaNatural(unsigned long long l)
+{
+	if (nums.size() == 0)
+		nums.push_back((uchar)0);
+
+	nums.at(0) = l % 10;
+	l = l / 10;
+	while (l>0)
+	{
+		nums.push_back(l % 10);
+		l = l / 10;
+	};
+}
 MegaNatural::MegaNatural(string str)
 {
 	bool isInputCorrect = true;
@@ -41,8 +54,14 @@ string MegaNatural::toString()
 	return temp;
 }
 
+MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
+{
+	this->nums = deque<uchar>(ob.nums);
+	return *this;
+}
+
 //Описание: умножение на цифру
-void MegaNatural::mulByK(uchar k) 
+void MegaNatural::mulByK(uchar k)
 {
 	if (k == 0)
 	{
@@ -86,62 +105,246 @@ long long MegaNatural::tenDivisiorCt()
 {
 	long long ct = 0;
 	deque<uchar>::iterator it;
-	for (it = nums.begin(); it < nums.end() && *it == 0; it++)
-		ct++;
+	if(nums.size() > 1)
+		for (it = nums.begin(); it < nums.end() && *it == 0; it++)
+			ct++;
 	return ct;
 }
 
 //Описание: вычитание натурального, умноженного на цифру
+//not finished
 void MegaNatural::subNatMulK(const MegaNatural &ob, long long k) {}
+
+//not tested
+int MegaNatural::firstDigOfDivByNat(const MegaNatural &ob)
+{
+	int i = 0;
+	MegaNatural a = ob;
+	MegaNatural b = 0;
+	while (*this >= a)
+	{
+		a.mulByTenPowK(1);
+	}
+	a.nums.pop_front();
+	while (*this >= a)
+	{
+		i++;
+		b = b + ob;
+	}
+	return i - 1;
+}
 
 bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
 {
+	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
+	bool frbile = len1 > len2;
+	if (len1 >= len2)
+	{
+		int i = 0;
+		for (; i < len2; i++)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return 0;
+		for (; i < len1; i++)
+		if (ob1.nums.at(i) != 0)
+			return 0;
+	}
+	else
+	{
+		int i=0;
+		for (; i < len1; i++)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return 0;
+		for (; i < len2; i++)
+		if (ob2.nums.at(i) != 0)
+			return 0;
+	}
+
+	return 1;
+
+
+
 	return false;
 }
 
 bool operator !=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
+	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
+
+	if (len1 >= len2)
+	{
+		int i = 0;
+		for (; i < len2; i++)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return 1;
+		for (; i < len1; i++)
+		if (ob1.nums.at(i) != 0)
+			return 1;
+	}
+	else
+	{
+		int i = 0;
+		for (; i < len1; i++)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return 1;
+		for (; i < len2; i++)
+		if (ob2.nums.at(i) != 0)
+			return 1;
+	}
+
+	return 0;
+
+
+
 	return false;
 }
 
 bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	return false;
+	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
+
+	if (len1 >= len2)
+	{
+		int i = len1 - 1;
+		for (; i >= len2; i--)
+		if (ob1.nums.at(i) != 0)
+			return 0;
+		for (; i >= 0; i--)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return ob1.nums.at(i) < ob2.nums.at(i);
+	}
+	else
+	{
+		int i = len2 - 1;
+		for (; i >= len1; i--)
+		if (ob2.nums.at(i) != 0)
+			return 1;
+		for (; i >= 0; i--)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return ob1.nums.at(i) < ob2.nums.at(i);
+	}
+
+	return 1;
 }
 
+//not working
 bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	return false;
+	int len2 = ob1.nums.size(), len1 = ob2.nums.size();
+
+	if (len2 >= len1)
+	{
+		int i = len2 - 1;
+		for (; i >= len1; i--)
+		if (ob1.nums.at(i) != 0)
+			return 0;
+		for (; i >= 0; i--)
+		if (ob2.nums.at(i) != ob1.nums.at(i))
+			return ob2.nums.at(i) < ob1.nums.at(i);
+	}
+	else
+	{
+		int i = len1 - 1;
+		for (; i >= len2; i--)
+		if (ob1.nums.at(i) != 0)
+			return 1;
+		for (; i >= 0; i--)
+		if (ob2.nums.at(i) != ob1.nums.at(i))
+			return ob2.nums.at(i) < ob1.nums.at(i);
+	}
+
+	return 1;
 }
 
+//not working
 bool operator <(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	return false;
+	int len2 = ob1.nums.size(), len1 = ob2.nums.size();
+
+	if (len2 >= len1)
+	{
+		int i = len2 - 1;
+		for (; i >= len1; i--)
+		if (ob2.nums.at(i) != 0)
+			return 1;
+		for (; i >= 0; i--)
+		if (ob2.nums.at(i) != ob1.nums.at(i))
+			return ob2.nums.at(i) >= ob1.nums.at(i);
+	}
+	else
+	{
+		int i = len1 - 1;
+		for (; i >= len2; i--)
+		if (ob1.nums.at(i) != 0)
+			return 0;
+		for (; i >= 0; i--)
+		if (ob2.nums.at(i) != ob1.nums.at(i))
+			return ob2.nums.at(i) >= ob1.nums.at(i);
+	}
+
+	return 0;
 }
 
 bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	return false;
+	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
+
+	if (len1 >= len2)
+	{
+		int i = len1 - 1;
+		for (; i >= len2; i--)
+		if (ob1.nums.at(i) != 0)
+			return 1;
+		for (; i >= 0; i--)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return ob1.nums.at(i) >= ob2.nums.at(i);
+	}
+	else
+	{
+		int i = len2 - 1;
+		for (; i >= len1; i--)
+		if (ob2.nums.at(i) != 0)
+			return 0;
+		for (; i >= 0; i--)
+		if (ob1.nums.at(i) != ob2.nums.at(i))
+			return ob1.nums.at(i) >= ob2.nums.at(i);
+	}
+
+	return 0;
 }
 
-MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
-{
-	MegaNatural ob1;
-	return ob1;
-}
-
-MegaNatural& MegaNatural::operator =(const long long a)
-{
-	MegaNatural ob;
-	return ob;
-}
-
+//not tested
 MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob;
-	return ob;
+   MegaNatural res;
+   const MegaNatural* max_obj = (ob1.nums.size() >= ob2.nums.size()) ? &ob1 : &ob2;
+   const MegaNatural* min_obj = (ob1.nums.size() < ob2.nums.size()) ? &ob1 : &ob2;
+
+   res = *max_obj;
+   res.nums.push_back(0);
+
+   for (int i = 0; i < min_obj->nums.size(); i++)
+   {
+	  res.nums[i] += min_obj->nums[i];
+	  if (res.nums[i] >= 10)
+	  {
+		 res.nums[i] %= 10;
+		 res.nums[i + 1] += 1;
+	  }
+   }
+
+   for (int i = min_obj->nums.size(); res.nums[i] >= 10 && i < max_obj->nums.size(); i++)
+   {
+	  res.nums[i] %= 10;
+	  res.nums[i + 1] += 1;
+   }
+
+   if (res.nums[res.nums.size() - 1] == 0)
+	  res.nums.pop_back();
+
+   return res;
 }
 
+//not working
 MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 {
 	MegaNatural res, tmp;
@@ -191,23 +394,57 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 		iter = res.nums.begin();
 		while(*iter == 0)
 			{
+				iter++;
 				res.nums.pop_front();
 			}
 		return res;
 	}
 }
 
+//not working
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob;
+	MegaNatural ob, tmp;
+	ob = ob1;
+	int k, i;
+	if(ob1 < ob2)
+	{
+		return tmp;
+	}
+	while(ob > ob2)
+	{
+		tmp.nums[0] = ob.nums[ob2.size()];
+		for(i = ob2.nums.size() - 1; i > 0; i--)
+		{
+			tmp.nums.push_front(ob.nums[i]);
+		}
+		k = ob.firstDigOfDivByNat(ob2);
+		tmp.subNatMulK(ob2, k);
+		for(i = tmp.size(); i > 0; i--)
+		{
+			ob.nums[i] = tmp.nums[i];
+		}
+		i = 0;
+		while(ob.nums[i] == 0)
+		{
+			ob.nums.pop_front();
+			i++;
+		}
+		for(i = 0; i < tmp.nums.size() - 1; i++)
+		{
+			tmp.nums.pop_front();
+		}
+	}
 	return ob;
 }
+
 
 MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2)
 {
 	return ob1 - ob2 * (ob1 / ob2);
 }
 
+//not finished
 MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2)
 {
 	MegaNatural ob;
