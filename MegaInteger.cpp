@@ -57,32 +57,50 @@ MegaNatural toMegaNatural()
 
 bool operator ==(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	return false;
+	return (ob1.num == ob2.num && (ob1.isNegative == ob2.isNegative));
 }
 
 bool operator !=(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	return false;
+	return !(ob1 == ob2);
 }
 
 bool operator >(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	return false;
+	if (ob1.isNegative)
+		if (ob2.isNegative)
+			return ob1.num < ob2.num;
+		else
+			return false;
+	else
+		if (ob2.isNegative)
+			return true;
+		else
+			return ob1.num > ob2.num;
 }
 
 bool operator <(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	return false;
+	return ob2 > ob1;
 }
 
 bool operator >=(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	return false;
+	if (ob1.isNegative)
+		if (ob2.isNegative)
+			return ob1.num <= ob2.num;
+		else
+			return false;
+	else
+		if (ob2.isNegative)
+			return true;
+		else
+			return ob1.num >= ob2.num;
 }
 
 bool operator <=(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	return false;
+	return ob2 >= ob1;
 }
 
 MegaInteger operator %(const MegaInteger &ob1, const MegaInteger &ob2)

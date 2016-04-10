@@ -56,8 +56,11 @@ string MegaNatural::toString()
 
 MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
 {
-	this->nums = deque<uchar>(ob.nums);
-	return *this;
+	if (&ob != this)
+	{
+		this->nums = deque<uchar>(ob.nums);
+		return *this;
+	}
 }
 
 //Описание: умножение на цифру
