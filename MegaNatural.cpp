@@ -206,30 +206,17 @@ bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2)
 //not working
 bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	int len2 = ob1.nums.size(), len1 = ob2.nums.size();
-
-	if (len2 >= len1)
-	{
-		int i = len2 - 1;
-		for (; i >= len1; i--)
-		if (ob1.nums.at(i) != 0)
-			return 0;
-		for (; i >= 0; i--)
-		if (ob2.nums.at(i) != ob1.nums.at(i))
-			return ob2.nums.at(i) < ob1.nums.at(i);
-	}
+	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
+	if (len1 > len2)
+		return true;
 	else
-	{
-		int i = len1 - 1;
-		for (; i >= len2; i--)
-		if (ob1.nums.at(i) != 0)
-			return 1;
-		for (; i >= 0; i--)
-		if (ob2.nums.at(i) != ob1.nums.at(i))
-			return ob2.nums.at(i) < ob1.nums.at(i);
-	}
-
-	return 1;
+		if (len1 < len2)
+			return false;
+		else
+			for (int i = len1 - 1; i >= 0; i--)
+				if (ob1.nums[i] != ob2.nums[i])
+					return ob1.nums[i] > ob2.nums[i];
+	return true;
 }
 
 //not working
