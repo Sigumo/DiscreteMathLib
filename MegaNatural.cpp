@@ -234,7 +234,6 @@ MegaNatural operator +(const MegaNatural &ob1, const MegaNatural &ob2)
 	return res;
 }
 
-//not working
 MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	if (ob1 < ob2)
@@ -284,7 +283,6 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 	return res;
 }
 
-//not working
 MegaNatural operator /(const MegaNatural &aa, const MegaNatural &b)
 {
    MegaNatural a(aa);
@@ -323,7 +321,6 @@ MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2)
 	return ob1 - ob2 * (ob1 / ob2);
 }
 
-//not finished
 MegaNatural operator *(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	MegaNatural res, _ob1 = ob1;
