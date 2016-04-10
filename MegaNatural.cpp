@@ -168,10 +168,9 @@ bool operator >=(const MegaNatural &ob1, const MegaNatural &ob2)
 	return true;
 }
 
-//not working
 bool operator <(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	return ob2 >= ob1;
+	return ob2 > ob1;
 }
 
 bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
