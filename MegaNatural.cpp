@@ -111,29 +111,6 @@ long long MegaNatural::tenDivisiorCt()
 	return ct;
 }
 
-//Описание: вычитание натурального, умноженного на цифру
-//not finished
-void MegaNatural::subNatMulK(const MegaNatural &ob, long long k) {}
-
-//not tested
-int MegaNatural::firstDigOfDivByNat(const MegaNatural &ob)
-{
-	int i = 0;
-	MegaNatural a = ob;
-	MegaNatural b = 0;
-	while (*this >= a)
-	{
-		a.mulByTenPowK(1);
-	}
-	a.nums.pop_front();
-	while (*this >= a)
-	{
-		i++;
-		b = b + ob;
-	}
-	return i - 1;
-}
-
 bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
@@ -404,37 +381,7 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 //not working
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural ob, tmp;
-	ob = ob1;
-	int k, i;
-	if(ob1 < ob2)
-	{
-		return tmp;
-	}
-	while(ob > ob2)
-	{
-		tmp.nums[0] = ob.nums[ob2.nums.size()];
-		for(i = ob2.nums.size() - 1; i > 0; i--)
-		{
-			tmp.nums.push_front(ob.nums[i]);
-		}
-		k = ob.firstDigOfDivByNat(ob2);
-		tmp.subNatMulK(ob2, k);
-		for(i = tmp.nums.size(); i > 0; i--)
-		{
-			ob.nums[i] = tmp.nums[i];
-		}
-		i = 0;
-		while(ob.nums[i] == 0)
-		{
-			ob.nums.pop_front();
-			i++;
-		}
-		for(i = 0; i < tmp.nums.size() - 1; i++)
-		{
-			tmp.nums.pop_front();
-		}
-	}
+	MegaNatural ob;
 	return ob;
 }
 

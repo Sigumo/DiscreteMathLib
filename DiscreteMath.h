@@ -4,12 +4,8 @@
 #include "MegaNatural.h"
 #include "MegaInteger.h"
 
-static class DiscreteMath 
-{
-public:
-	static MegaNatural gcd(const MegaNatural &a, const MegaNatural &b);
-	static MegaNatural lcm(const MegaNatural &a, const MegaNatural &b);
-};
+static DiscreteMath::MegaNatural gcd(const MegaNatural &a, const MegaNatural &b);
+static DiscreteMath::MegaNatural lcm(const MegaNatural &a, const MegaNatural &b);
 
 #include "DiscreteMath.cpp"
 

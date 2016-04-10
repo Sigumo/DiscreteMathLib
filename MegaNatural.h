@@ -43,11 +43,6 @@ private:
 	
 	//Описание: умножение на цифру
 	void mulByK(uchar k);
-	
-	//Описание: вычитание натурального, умноженного на цифру
-	void subNatMulK(const MegaNatural &ob, long long k);
-
-	int firstDigOfDivByNat(const MegaNatural &ob);
 };
 
 #include "MegaNatural.cpp"
