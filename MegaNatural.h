@@ -29,11 +29,11 @@ public:
 	friend bool operator <(const MegaNatural &ob1, const MegaNatural &ob2);
 	friend bool operator >(const MegaNatural &ob1, const MegaNatural &ob2);
 	MegaNatural& operator =(const MegaNatural &ob);
-	friend MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2);
+	friend MegaNatural operator +(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator /(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator *(const MegaNatural &ob1, const MegaNatural &ob2);
 
 	string toString();
 	
@@ -43,11 +43,6 @@ private:
 	
 	//Описание: умножение на цифру
 	void mulByK(uchar k);
-	
-	//Описание: вычитание натурального, умноженного на цифру
-	void subNatMulK(const MegaNatural &ob, long long k);
-
-	int firstDigOfDivByNat(const MegaNatural &ob);
 };
 
 #include "MegaNatural.cpp"
