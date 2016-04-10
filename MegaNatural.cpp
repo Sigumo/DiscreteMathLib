@@ -54,7 +54,6 @@ string MegaNatural::toString()
 	return temp;
 }
 
-//not tested
 MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
 {
 	this->nums = deque<uchar>(ob.nums);
@@ -102,13 +101,13 @@ void MegaNatural::mulByTenPowK(long long k)
 				nums.push_front(0);
 }
 
-//not tested
 long long MegaNatural::tenDivisiorCt()
 {
 	long long ct = 0;
 	deque<uchar>::iterator it;
-	for (it = nums.begin(); it < nums.end() && *it == 0; it++)
-		ct++;
+	if(nums.size() > 1)
+		for (it = nums.begin(); it < nums.end() && *it == 0; it++)
+			ct++;
 	return ct;
 }
 
