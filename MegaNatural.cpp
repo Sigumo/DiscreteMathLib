@@ -413,14 +413,14 @@ MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 	}
 	while(ob > ob2)
 	{
-		tmp.nums[0] = ob.nums[ob2.size()];
+		tmp.nums[0] = ob.nums[ob2.nums.size()];
 		for(i = ob2.nums.size() - 1; i > 0; i--)
 		{
 			tmp.nums.push_front(ob.nums[i]);
 		}
 		k = ob.firstDigOfDivByNat(ob2);
 		tmp.subNatMulK(ob2, k);
-		for(i = tmp.size(); i > 0; i--)
+		for(i = tmp.nums.size(); i > 0; i--)
 		{
 			ob.nums[i] = tmp.nums[i];
 		}
