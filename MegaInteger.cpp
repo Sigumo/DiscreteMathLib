@@ -89,8 +89,8 @@ MegaInteger operator %(const MegaInteger &ob1, const MegaInteger &ob2)
 {
 	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
 	ob = _ob1.toMegaNatural() % _ob2.toMegaNatural();
-	if (ob1.isNegative)
-		ob = ob2.abs - ob;
+	if (_ob1.isNegative)
+		ob = _ob2.abs - ob;
 	return ob;
 }
 
@@ -98,7 +98,7 @@ MegaInteger operator *(const MegaInteger &ob1, const MegaInteger &ob2)
 {
 	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
 	ob = _ob1.toMegaNatural() * _ob2.toMegaNatural();
-	ob.isNegative = ob1.isNegative == ob2.isNegative;
+	ob.isNegative = _ob1.isNegative == _ob2.isNegative;
 	return ob;
 }
 
@@ -106,7 +106,7 @@ MegaInteger operator /(const MegaInteger &ob1, const MegaInteger &ob2)
 {
 	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
 	ob = _ob1.toMegaNatural() / _ob2.toMegaNatural();
-	ob.isNegative = ob1.isNegative == ob2.isNegative;
+	ob.isNegative = _ob1.isNegative == _ob2.isNegative;
 	return ob;
 }
 
@@ -118,16 +118,18 @@ MegaInteger operator +(const MegaInteger &ob1, const MegaInteger &ob2)
 		ob.num = _ob1.toMegaNatural() + _ob2.toMegaNatural();
 		ob.isNegative = _ob1.isNegative;
 	}
-	else if (_ob1.abs() > _ob2.abs)
+	else if (_ob1.abs() > _ob2.abs())
 	{
 		ob.num = _ob1.toMegaNatural() - _ob2.toMegaNatural();
 		ob.isNegative = _ob1.isNegative;
-	}
-	else
+	} 
+	else if (_ob1.abs() < _ob2.abs());
 	{
 		ob.num = _ob2.toMegaNatural() - _ob1.toMegaNatural();
 		ob.isNegative = _ob2.isNegative;
 	}
+	else 
+		ob = 0;
 	return ob;
 }
 
