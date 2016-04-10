@@ -42,7 +42,7 @@ private:
 	deque<uchar> nums;
 	
 	//Описание: умножение на цифру
-	void mulByK(uchar k);
+	MegaNatural mulByK(uchar k);
 };
 
 #include "MegaNatural.cpp"

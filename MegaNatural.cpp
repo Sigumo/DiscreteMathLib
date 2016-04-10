@@ -61,28 +61,30 @@ MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
 }
 
 //Описание: умножение на цифру
-void MegaNatural::mulByK(uchar k)
+MegaNatural MegaNatural::mulByK(uchar k)
 {
+	MegaNatural res = *this;
 	if (k == 0)
 	{
-		while (nums.size() > 1)
-			nums.pop_back();
-		nums[0] = 0;
+		while (res.nums.size() > 1)
+			res.nums.pop_back();
+		res.nums[0] = 0;
 	}
 	else
 	{
 		uchar temp = 0;
-		long long lng = nums.size();
+		long long lng = res.nums.size();
 		for (int i = 0; i < lng; i++)
 		{
-			nums[i] = nums[i] * k + temp;
-			if (i == lng - 1 && nums[i] / 10)
-				nums.push_back(nums[i] / 10);
+			res.nums[i] = res.nums[i] * k + temp;
+			if (i == lng - 1 && res.nums[i] / 10)
+				nums.push_back(res.nums[i] / 10);
 			else
-				temp = nums[i] / 10;
-			nums[i] %= 10;
+				temp = res.nums[i] / 10;
+			res.nums[i] %= 10;
 		}
 	}
+	return res;
 }
 
 
@@ -297,6 +299,15 @@ MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2)
 //not finished
 MegaNatural operator *(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	MegaNatural ob;
-	return ob;
+	MegaNatural res, _ob1;
+	int len = ob2.nums.size();
+
+	for (int i = 0; i < len; i++)
+	{
+		MegaNatural temp = _ob1.mulByK(ob2.nums[i]);
+		temp.mulByTenPowK(i);
+		cout << "temp = " << temp << endl;
+		res = res + temp;
+	}
+	return res;
 }
