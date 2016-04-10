@@ -145,34 +145,7 @@ bool operator ==(const MegaNatural &ob1, const MegaNatural &ob2)
 
 bool operator !=(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	int len1 = ob1.nums.size(), len2 = ob2.nums.size();
-
-	if (len1 >= len2)
-	{
-		int i = 0;
-		for (; i < len2; i++)
-		if (ob1.nums.at(i) != ob2.nums.at(i))
-			return 1;
-		for (; i < len1; i++)
-		if (ob1.nums.at(i) != 0)
-			return 1;
-	}
-	else
-	{
-		int i = 0;
-		for (; i < len1; i++)
-		if (ob1.nums.at(i) != ob2.nums.at(i))
-			return 1;
-		for (; i < len2; i++)
-		if (ob2.nums.at(i) != 0)
-			return 1;
-	}
-
-	return 0;
-
-
-
-	return false;
+	return !(ob1 == ob2);
 }
 
 bool operator <=(const MegaNatural &ob1, const MegaNatural &ob2)
