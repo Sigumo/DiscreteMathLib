@@ -404,53 +404,49 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 //not working
 MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
 {
-	MegaNatural res, ob;
+	MegaNatural ob, tmp;
 	ob = ob1;
+	int k, i;
 	if(ob1 < ob2)
 	{
-		return res;
+		return tmp;
 	}
-	deque<uchar>::iterator iter;
-	res.nums.push_front(0);
-	while(ob1 >= ob2)
+	while(ob > ob2)
 	{
-		ob = ob1 - ob2;
-		for (iter = res.nums.end(); iter != res.nums.begin(); iter--)
+		tmp.nums[0] = ob.nums[ob2.size()];
+		for(i = ob2.nums.size() - 1; i > 0; i--)
 		{
-			if(*iter >= 0 && *iter < 9)
-			{
-				*iter = *iter + 1;
-				break;
-			}
-			if(*iter == 9)
-			{
-				*iter = 0;
-				if(*(iter - 1) == 9)
-					{
-						continue;
-					}
-				*(iter - 1) = *(iter - 1) + 1;
-				if((iter - 1) == res.nums.begin())
-				{
-					res.nums.push_front(0);
-				}
-
-			}
+			tmp.nums.push_front(ob.nums[i]);
+		}
+		k = ob.firstDigOfDivByNat(ob2);
+		tmp.subNatMulK(ob2, k);
+		for(i = tmp.size(); i > 0; i--)
+		{
+			ob.nums[i] = tmp.nums[i];
+		}
+		i = 0;
+		while(ob.nums[i] == 0)
+		{
+			ob.nums.pop_front();
+			i++;
+		}
+		for(i = 0; i < tmp.nums.size() - 1; i++)
+		{
+			tmp.nums.pop_front();
 		}
 	}
-	iter = res.nums.begin();
-		while(*iter == 0)
-			{
-				iter++;
-				res.nums.pop_front();
-			}
-	return res;
+	return ob;
 }
 
 //not finished
 MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2)
 {
 	MegaNatural ob;
+	ob = ob1;
+	while(ob > ob2)
+	{
+		ob = ob - ob2;
+	}
 	return ob;
 }
 
