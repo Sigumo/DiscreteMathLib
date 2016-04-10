@@ -289,6 +289,11 @@ MegaNatural operator /(const MegaNatural &aa, const MegaNatural &b)
    MegaNatural tmp = 0;
    MegaNatural res = 0;
 
+   if (b == 0)
+   {
+	  printf("division by zero");
+	  return 0;
+   }
    
    while (a.nums.size() > 0)
    {
