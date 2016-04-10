@@ -78,7 +78,7 @@ MegaNatural MegaNatural::mulByK(uchar k)
 		{
 			res.nums[i] = res.nums[i] * k + temp;
 			if (i == lng - 1 && res.nums[i] / 10)
-				nums.push_back(res.nums[i] / 10);
+				res.nums.push_back(res.nums[i] / 10);
 			else
 				temp = res.nums[i] / 10;
 			res.nums[i] %= 10;
