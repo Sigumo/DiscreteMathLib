@@ -300,14 +300,13 @@ MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2)
 //not finished
 MegaNatural operator *(const MegaNatural &ob1, const MegaNatural &ob2)
 {
-	MegaNatural res, _ob1;
+	MegaNatural res, _ob1 = ob1;
 	int len = ob2.nums.size();
 
 	for (int i = 0; i < len; i++)
 	{
 		MegaNatural temp = _ob1.mulByK(ob2.nums[i]);
 		temp.mulByTenPowK(i);
-		cout << "temp = " << temp << endl;
 		res = res + temp;
 	}
 	return res;
