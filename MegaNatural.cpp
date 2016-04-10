@@ -253,7 +253,6 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 	b = 0;
 	for (i = 0; i < len2; i++)
 	{
-
 		a = ob1.nums.at(i) - (int)ob2.nums.at(i) - b;
 		if (a < 0)
 		{
@@ -267,7 +266,6 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 	}
 	for (; i < len1; i++)
 	{
-
 		a = ob1.nums.at(i) - b;
 		if (a < 0)
 		{
@@ -279,6 +277,9 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 
 		res.nums.push_back(a);
 	}
+
+	while (res.nums.size() != 1 && res.nums[res.nums.size() - 1] == 0)
+	   res.nums.pop_back();
 
 	return res;
 }
