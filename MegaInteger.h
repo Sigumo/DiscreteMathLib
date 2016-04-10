@@ -21,7 +21,7 @@ public:
 	MegaNatural toMegaNatural();
 	string toString();
 
-	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2);
+	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2);
 private:
 	MegaNatural num;
 	bool isNegative;
