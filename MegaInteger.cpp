@@ -13,6 +13,10 @@ MegaInteger::MegaInteger(MegaInteger &ob)
 	isNegative = ob.isNegative;
 	num = MegaNatural(ob.num);
 }
+MegaInteger::MegaInteger(long long a)
+{
+
+}
 MegaInteger::MegaInteger(string str)
 {
 	if (str[0] == '-')
@@ -39,16 +43,74 @@ string MegaInteger::toString()
 	return str;
 }
 
-//MegaNatural operator %(const MegaInteger &ob1, const MegaInteger ob2)
-//{	
-//	if (ob2 == 0)
-//	{
-//		cout << "Error! Incorrect divisor in operation %.";
-//		return 0;
-//	}
-//
-//	MegaNatural ob( ob1.abs.toMegaNatural() % ob2.abs.toMegaNatural() );
-//	if (ob1.isNegative)
-//		ob = ob2.abs - ob;
-//	return ob;
-//}
+MegaInteger abs()
+{
+	MegaInteger ob;
+	return ob;
+}
+
+MegaNatural toMegaNatural()
+{
+	MegaNatural ob;
+	return ob;
+}
+
+bool operator ==(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	return false;
+}
+
+bool operator !=(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	return false;
+}
+
+bool operator >(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	return false;
+}
+
+bool operator <(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	return false;
+}
+
+bool operator >=(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	return false;
+}
+
+bool operator <=(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	return false;
+}
+
+MegaInteger operator %(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	MegaInteger ob;
+	return ob;
+}
+
+MegaInteger operator *(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	MegaInteger ob;
+	return ob;
+}
+
+MegaInteger operator /(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	MegaInteger ob;
+	return ob;
+}
+
+MegaInteger operator +(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	MegaInteger ob;
+	return ob;
+}
+
+MegaInteger operator -(const MegaInteger &ob1, const MegaInteger &ob2)
+{
+	MegaInteger ob;
+	return ob;
+}

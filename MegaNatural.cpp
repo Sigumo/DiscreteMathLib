@@ -234,7 +234,6 @@ MegaNatural operator +(const MegaNatural &ob1, const MegaNatural &ob2)
 	return res;
 }
 
-//not working
 MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	if (ob1 < ob2)
@@ -284,11 +283,36 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 	return res;
 }
 
-//not working
-MegaNatural operator /(const MegaNatural &ob1, const MegaNatural &ob2)
+MegaNatural operator /(const MegaNatural &aa, const MegaNatural &b)
 {
-	MegaNatural ob;
-	return ob;
+   MegaNatural a(aa);
+   MegaNatural tmp = 0;
+   MegaNatural res = 0;
+
+   
+   while (a.nums.size() > 0)
+   {
+	  while (a.nums.size() > 0 && tmp < b)
+	  {
+		 if (tmp.nums.size() == 1 && tmp.nums[0] == 0)
+			tmp.nums.pop_back();
+
+		 tmp.nums.push_front(a.nums[a.nums.size() - 1]);
+		 a.nums.pop_back();
+		 res.nums.push_front(0);
+	  }
+
+	  while (tmp >= b)
+	  {
+		 tmp = tmp - b;
+		 res.nums[0] += 1;
+	  }
+   }
+   
+   while(res.nums.size() > 1 && res.nums[res.nums.size() - 1] == 0)
+	  res.nums.pop_back();
+
+   return res;
 }
 
 
@@ -297,7 +321,6 @@ MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2)
 	return ob1 - ob2 * (ob1 / ob2);
 }
 
-//not finished
 MegaNatural operator *(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	MegaNatural res, _ob1 = ob1;

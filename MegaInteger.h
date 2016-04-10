@@ -12,6 +12,7 @@ public:
 	MegaInteger();
 	MegaInteger(MegaNatural &ob);
 	MegaInteger(MegaInteger &ob);
+	MegaInteger(long long a);
 	MegaInteger(string);
 	~MegaInteger();
 
@@ -21,7 +22,20 @@ public:
 	MegaNatural toMegaNatural();
 	string toString();
 
-	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2);
+	//MegaInteger& operator =(MegaInteger &ob);
+
+	friend MegaInteger operator ==(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator!=(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator <(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator >(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator <=(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator >=(const MegaInteger &ob1, const MegaInteger &ob2);
+
+	friend MegaInteger operator %(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator *(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator /(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator +(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator -(const MegaInteger &ob1, const MegaInteger &ob2);
 private:
 	MegaNatural num;
 	bool isNegative;
