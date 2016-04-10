@@ -1,7 +1,7 @@
 #ifndef DISCRETE_MATH
 #define DISCRETE_MATH
 
-#incldue "MegaNatural.h"
+#include "MegaNatural.h"
 #include "MegaInteger.h"
 
 static class DiscreteMath 
