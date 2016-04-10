@@ -29,11 +29,11 @@ public:
 	friend bool operator <(const MegaNatural &ob1, const MegaNatural &ob2);
 	friend bool operator >(const MegaNatural &ob1, const MegaNatural &ob2);
 	MegaNatural& operator =(const MegaNatural &ob);
-	friend MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2);
-	friend MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2);
+	friend MegaNatural operator +(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator /(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2);
+	friend MegaNatural operator *(const MegaNatural &ob1, const MegaNatural &ob2);
 
 	string toString();
 	

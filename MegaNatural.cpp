@@ -201,8 +201,7 @@ bool operator >(const MegaNatural &ob1, const MegaNatural &ob2)
 	return 0;
 }
 
-//not tested
-MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
+MegaNatural operator +(const MegaNatural &ob1, const MegaNatural &ob2)
 {
    MegaNatural res;
    const MegaNatural* max_obj = (ob1.nums.size() >= ob2.nums.size()) ? &ob1 : &ob2;
@@ -234,7 +233,7 @@ MegaNatural operator +(const MegaNatural &ob1, const MegaNatural ob2)
 }
 
 //not working
-MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
+MegaNatural operator -(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	MegaNatural res, tmp;
 	unsigned int i = 0, j = 0;
@@ -291,20 +290,20 @@ MegaNatural operator -(const MegaNatural &ob1, const MegaNatural ob2)
 }
 
 //not working
-MegaNatural operator /(const MegaNatural &ob1, const MegaNatural ob2)
+MegaNatural operator /(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	MegaNatural ob;
 	return ob;
 }
 
 
-MegaNatural operator %(const MegaNatural &ob1, const MegaNatural ob2)
+MegaNatural operator %(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	return ob1 - ob2 * (ob1 / ob2);
 }
 
 //not finished
-MegaNatural operator *(const MegaNatural &ob1, const MegaNatural ob2)
+MegaNatural operator *(const MegaNatural &ob1, const MegaNatural &ob2)
 {
 	MegaNatural ob;
 	return ob;
