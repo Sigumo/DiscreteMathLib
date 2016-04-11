@@ -10,8 +10,8 @@ class MegaInteger
 {
 public:
 	MegaInteger();
-	MegaInteger(MegaNatural &ob);
-	MegaInteger(MegaInteger &ob);
+	MegaInteger(const MegaNatural &ob);
+	MegaInteger(const MegaInteger &ob);
 	MegaInteger(long long a);
 	MegaInteger(string);
 	~MegaInteger();
@@ -22,7 +22,7 @@ public:
 	MegaNatural toMegaNatural();
 	string toString();
 
-	//MegaInteger& operator =(MegaInteger &ob);
+	MegaInteger& operator =(MegaInteger &ob);
 
 	friend bool operator ==(const MegaInteger &ob1, const MegaInteger &ob2);
 	friend bool operator!=(const MegaInteger &ob1, const MegaInteger &ob2);
