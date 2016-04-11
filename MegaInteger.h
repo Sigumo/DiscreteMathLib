@@ -24,12 +24,12 @@ public:
 
 	//MegaInteger& operator =(MegaInteger &ob);
 
-	friend MegaInteger operator ==(const MegaInteger &ob1, const MegaInteger &ob2);
-	friend MegaInteger operator!=(const MegaInteger &ob1, const MegaInteger &ob2);
-	friend MegaInteger operator <(const MegaInteger &ob1, const MegaInteger &ob2);
-	friend MegaInteger operator >(const MegaInteger &ob1, const MegaInteger &ob2);
-	friend MegaInteger operator <=(const MegaInteger &ob1, const MegaInteger &ob2);
-	friend MegaInteger operator >=(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend bool operator ==(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend bool operator!=(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend bool operator <(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend bool operator >(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend bool operator <=(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend bool operator >=(const MegaInteger &ob1, const MegaInteger &ob2);
 
 	friend MegaInteger operator %(const MegaInteger &ob1, const MegaInteger &ob2);
 	friend MegaInteger operator *(const MegaInteger &ob1, const MegaInteger &ob2);
