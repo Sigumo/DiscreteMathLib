@@ -1,4 +1,4 @@
-﻿#ifndef MEGA_NATURAL_BASE
+#ifndef MEGA_NATURAL_BASE
 #define MEGA_NATURAL_BASE
 
 #include <iostream>
@@ -42,7 +42,7 @@ private:
 	deque<uchar> nums;
 	
 	//Описание: умножение на цифру
-	void mulByK(uchar k);
+	MegaNatural mulByK(uchar k);
 };
 
 #include "MegaNatural.cpp"

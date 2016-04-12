@@ -1,4 +1,4 @@
-static MegaNatural DiscreteMath::gcd(const MegaNatural &a, const MegaNatural &b)
+MegaNatural DiscreteMath::gcd(const MegaNatural &a, const MegaNatural &b)
 {
 	if (a == 0 && b == 0) //a == (MegaNatural)0?
 	{
@@ -25,7 +25,9 @@ static MegaNatural DiscreteMath::gcd(const MegaNatural &a, const MegaNatural &b)
 	return _a;
 }
 
-static MegaNatural DiscreteMath::lcm(const MegaNatural &a, const MegaNatural &b)
+MegaNatural DiscreteMath::lcm(const MegaNatural &a, const MegaNatural &b)
 {
+	if (a == 0 && b == 0)
+		return 0;
 	return a * b / gcd(a,b);
 }
