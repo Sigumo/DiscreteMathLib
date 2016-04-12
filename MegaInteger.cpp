@@ -15,7 +15,14 @@ MegaInteger::MegaInteger(const MegaInteger &ob)
 }
 MegaInteger::MegaInteger(long long a)
 {
-
+	if (a < 0)
+	{
+		isNegative = true;
+		a = -a;
+	}
+	else
+		isNegative = false;
+	num = a;
 }
 MegaInteger::MegaInteger(string str)
 {
@@ -45,7 +52,7 @@ string MegaInteger::toString()
 
 MegaInteger& MegaInteger::operator =(MegaInteger &ob)
 {
-	if(ob != *this)
+	if (ob != *this)
 	{
 		isNegative = ob.isNegative;
 		num = ob.num;
@@ -53,15 +60,16 @@ MegaInteger& MegaInteger::operator =(MegaInteger &ob)
 	return *this;
 }
 
-MegaInteger abs()
+MegaInteger MegaInteger::abs() const
 {
-	MegaInteger ob;
+	MegaInteger ob = *this;
+	ob.isNegative = false;
 	return ob;
 }
 
-MegaNatural toMegaNatural()
+MegaNatural MegaInteger::toMegaNatural()
 {
-	MegaNatural ob;
+	MegaNatural ob = num;
 	return ob;
 }
 
@@ -115,26 +123,40 @@ bool operator <=(const MegaInteger &ob1, const MegaInteger &ob2)
 
 MegaInteger operator %(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
-	ob = MegaInteger(_ob1.toMegaNatural() % _ob2.toMegaNatural());
-	if (_ob1.isNegative)
-		ob = _ob2.abs - ob;
+	MegaInteger ob;
+	if (ob2 != 0)
+	{
+		ob.num = ob1.num % ob2.num;
+		if (ob1.isNegative && ob.num != 0)
+			ob.num = ob2.num - ob.num;
+	}
+	else
+	{
+		cout << "Error in %(MegaInt). Div by 0." << endl;
+		ob = (MegaInteger)0;
+	}
 	return ob;
 }
 
 MegaInteger operator *(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
-	ob = MegaInteger(_ob1.toMegaNatural() * _ob2.toMegaNatural());
-	ob.isNegative = _ob1.isNegative == _ob2.isNegative;
+	MegaInteger ob;
+	ob.num = ob1.num * ob2.num;
+	if (ob != 0)
+		ob.isNegative = ob1.isNegative != ob2.isNegative;
 	return ob;
 }
 
 MegaInteger operator /(const MegaInteger &ob1, const MegaInteger &ob2)
 {
-	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
-	ob = MegaInteger(_ob1.toMegaNatural() / _ob2.toMegaNatural());
-	ob.isNegative = _ob1.isNegative == _ob2.isNegative;
+	MegaInteger ob;
+	if (ob2 != 0)
+	{
+		ob.num = ob1.num / ob2.num;
+		ob.isNegative = ob.num == 0 ? false : ob1.isNegative != ob2.isNegative;
+	}
+	else
+		cout << "Error in / (MegaInt). Division by 0." << endl;
 	return ob;
 }
 
@@ -143,21 +165,21 @@ MegaInteger operator +(const MegaInteger &ob1, const MegaInteger &ob2)
 	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
 	if (ob1.isNegative == ob2.isNegative)
 	{
-		ob.num = _ob1.toMegaNatural() + _ob2.toMegaNatural();
+		ob.num = _ob1.num + _ob2.num;
 		ob.isNegative = _ob1.isNegative;
 	}
-	else if (_ob1.abs() > _ob2.abs())
+	else if (_ob1.num > _ob2.num)
 	{
-		ob.num = _ob1.toMegaNatural() - _ob2.toMegaNatural();
+		ob.num = _ob1.num - _ob2.num;
 		ob.isNegative = _ob1.isNegative;
-	} 
-	else if (_ob1.abs() < _ob2.abs())
+	}
+	else if (_ob1.num < _ob2.num)
 	{
-		ob.num = _ob2.toMegaNatural() - _ob1.toMegaNatural();
+		ob.num = _ob2.num - _ob1.num;
 		ob.isNegative = _ob2.isNegative;
 	}
 	else
-		ob = 0;
+		ob = (MegaInteger)0;
 	return ob;
 }
 
@@ -166,4 +188,12 @@ MegaInteger operator -(const MegaInteger &ob1, const MegaInteger &ob2)
 	MegaInteger ob, _ob1 = ob1, _ob2 = ob2;
 	ob = _ob1 + (-_ob2);
 	return ob;
+}
+
+MegaInteger operator -(const MegaInteger &ob)
+{
+	MegaInteger res;
+	res.num = ob.num;
+	res.isNegative = !ob.isNegative;
+	return res;
 }

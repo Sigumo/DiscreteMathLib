@@ -17,7 +17,7 @@ public:
 	~MegaInteger();
 
 	//Описание: модуль числа
-	MegaInteger abs();
+	MegaInteger abs() const;
 	//Описание: преобразование целого в натуральное
 	MegaNatural toMegaNatural();
 	string toString();
@@ -36,6 +36,7 @@ public:
 	friend MegaInteger operator /(const MegaInteger &ob1, const MegaInteger &ob2);
 	friend MegaInteger operator +(const MegaInteger &ob1, const MegaInteger &ob2);
 	friend MegaInteger operator -(const MegaInteger &ob1, const MegaInteger &ob2);
+	friend MegaInteger operator -(const MegaInteger &ob);
 private:
 	MegaNatural num;
 	bool isNegative;
