@@ -1,4 +1,4 @@
-﻿#include "MegaNatural.h"
+#include "MegaNatural.h"
 MegaNatural::MegaNatural()
 {
 	nums.push_back((uchar)0);
