@@ -14,27 +14,27 @@ MegaInteger MegaRational::toMegaInteger()
 	return ob;
 }
 
-bool MegaRational::operator ==(const MegaRational &ob1, const MegaRational &ob2)
+bool operator ==(const MegaRational &ob1, const MegaRational &ob2)
 {
 	return false;
 }
-bool MegaRational::operator !=(const MegaRational &ob1, const MegaRational &ob2)
+bool operator !=(const MegaRational &ob1, const MegaRational &ob2)
 {
 	return false;
 }
-bool MegaRational::operator <(const MegaRational &ob1, const MegaRational &ob2)
+bool operator <(const MegaRational &ob1, const MegaRational &ob2)
 {
 	return false;
 }
-bool MegaRational::operator >(const MegaRational &ob1, const MegaRational &ob2)
+bool operator >(const MegaRational &ob1, const MegaRational &ob2)
 {
 	return false;
 }
-bool MegaRational::operator <=(const MegaRational &ob1, const MegaRational &ob2)
+bool operator <=(const MegaRational &ob1, const MegaRational &ob2)
 {
 	return false;
 }
-bool MegaRational::operator >=(const MegaRational &ob1, const MegaRational &ob2)
+bool operator >=(const MegaRational &ob1, const MegaRational &ob2)
 {
 	return false;
 }

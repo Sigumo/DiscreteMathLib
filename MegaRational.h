@@ -35,7 +35,7 @@ public:
 	MegaRational& operator =(MegaRational &ob);
 private:
 	MegaInteger numerator;
-	MegaInteger denominator;
+	MegaNatural denominator;
 };
 
 #include "MegaRational.cpp"
