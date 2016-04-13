@@ -71,3 +71,11 @@ MegaRational operator -(const MegaRational &ob)
 	ob1.numerator.isNegative = !ob.numerator.isNegative;
 	return ob1;
 }
+
+MegaRational& operator =(MegaRational &ob)
+{
+	MegaRational ob1;
+	ob1.numerator = ob.numerator;
+	ob1.denominator = ob.denominator;
+	return ob1;
+}
