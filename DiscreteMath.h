@@ -5,8 +5,8 @@
 
 namespace DiscreteMath
 {
-	static MegaNatural gcd(const MegaNatural &a, const MegaNatural &b);
-	static MegaNatural lcm(const MegaNatural &a, const MegaNatural &b);
+	MegaNatural gcd(const MegaNatural &a, const MegaNatural &b);
+	MegaNatural lcm(const MegaNatural &a, const MegaNatural &b);
 }
 
 #include "DiscreteMath.cpp"

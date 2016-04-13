@@ -1,4 +1,4 @@
-﻿#include "MegaNatural.h"
+#include "MegaNatural.h"
 MegaNatural::MegaNatural()
 {
 	nums.push_back((uchar)0);
@@ -56,7 +56,8 @@ string MegaNatural::toString()
 
 MegaNatural& MegaNatural::operator =(const MegaNatural &ob)
 {
-	this->nums = deque<uchar>(ob.nums);
+	if (&ob != this)
+		this->nums = deque<uchar>(ob.nums);
 	return *this;
 }
 
@@ -289,6 +290,11 @@ MegaNatural operator /(const MegaNatural &aa, const MegaNatural &b)
    MegaNatural tmp = 0;
    MegaNatural res = 0;
 
+   if (b == 0)
+   {
+	  printf("division by zero");
+	  return 0;
+   }
    
    while (a.nums.size() > 0)
    {
