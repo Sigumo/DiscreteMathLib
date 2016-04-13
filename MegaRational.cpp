@@ -75,7 +75,7 @@ MegaRational operator -(const MegaRational &ob)
 MegaRational& operator =(MegaRational &ob)
 {
 	MegaRational ob1;
-	if(&this != &ob)
+	if(this != &ob)
 	{
 	ob1.numerator = ob.numerator;
 	ob1.denominator = ob.denominator;
