@@ -1,5 +1,26 @@
-MegaRational::MegaRational() {}
-MegaRational::MegaRational(MegaInteger) {}
+MegaRational::MegaRational()
+{
+	numerator = MegaInteger();
+	denominator = MegaNatural(1);
+}
+
+MegaRational::MegaRational(const MegaInteger &a)
+{
+	numerator = a;
+	denominator = MegaNatural(1);
+}
+
+MegaRational::MegaRational(const MegaInteger &a, const  MegaNatural &b)
+{
+	numerator = a;
+	denominator = b;
+}
+
+MegaRational::MegaRational(const MegaRational &a)
+{
+	numerator = a.numerator;
+	denominator = a.denominator;
+}
 
 MegaRational::~MegaRational() {}
 
@@ -42,13 +63,20 @@ bool operator >=(const MegaRational &ob1, const MegaRational &ob2)
 MegaRational operator +(const MegaRational &ob1, const MegaRational &ob2)
 {
 	MegaRational res;
+
+	res.denominator = lcm(ob1.denominator, ob2.denominator);
+	res.numerator = ob1.numerator * res.denominator / ob1.denominator + 
+		ob2.numerator * res.denominator / ob2.denominator;
+	res.reduction();
 	return res;
 }
+
 MegaRational operator -(const MegaRational &ob1, const MegaRational &ob2)
 {
-	MegaRational res;
+	MegaRational res = ob1 + (-ob2);
 	return res;
 }
+
 MegaRational operator *(const MegaRational &ob1, const MegaRational &ob2)
 {
 	MegaRational res;
