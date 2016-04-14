@@ -112,15 +112,22 @@ MegaRational operator *(const MegaRational &ob1, const MegaRational &ob2)
 }
 MegaRational operator /(const MegaRational &ob1, const MegaRational &ob2)
 {
-	MegaRational res, ob2Cpy = ob2;
-	MegaInteger temp;
-	//Переворот ob2Cpy
-	temp = ob2Cpy.numerator;
-	ob2Cpy.numerator = MegaInteger(ob2Cpy.denominator) * (temp < 0 ? -1 : 1);
-	ob2Cpy.denominator = temp.toMegaNatural();
+   MegaRational res;
+   //ob2Cpy = ob2;
+	//MegaInteger temp;
+	////Переворот ob2Cpy
+	//temp = ob2Cpy.numerator;
+	//ob2Cpy.numerator = MegaInteger(ob2Cpy.denominator) * (temp < 0 ? -1 : 1);
+	//ob2Cpy.denominator = temp.toMegaNatural();
 
-	res = (ob1 * ob2Cpy);
+	//res = (ob1 * ob2Cpy);
+	//return res;
+
+	res.numerator = ob1.numerator*ob2.denominator;
+	res.denominator = (ob1.denominator*ob2.numerator).toMegaNatural();
+	res.numerator = res.numerator * ((ob2.numerator > 0) ? 1 : -1);
 	return res;
+
 }
 MegaRational operator -(const MegaRational &ob)
 {
