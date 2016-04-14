@@ -50,7 +50,7 @@ string MegaInteger::toString()
 	return str;
 }
 
-MegaInteger& MegaInteger::operator =(MegaInteger &ob)
+MegaInteger& MegaInteger::operator =(const MegaInteger &ob)
 {
 	if (ob != *this)
 	{

@@ -22,7 +22,7 @@ public:
 	MegaNatural toMegaNatural();
 	string toString();
 
-	MegaInteger& operator =(MegaInteger &ob);
+	MegaInteger& operator =(const MegaInteger &ob);
 
 	friend bool operator ==(const MegaInteger &ob1, const MegaInteger &ob2);
 	friend bool operator!=(const MegaInteger &ob1, const MegaInteger &ob2);
