@@ -67,8 +67,8 @@ MegaRational operator %(const MegaRational &ob1, const MegaRational &ob2)
 MegaRational operator -(const MegaRational &ob)
 {
 	MegaRational ob1;
-	ob1 = ob;
-	ob1.numerator.isNegative = !ob.numerator.isNegative;
+	ob1.numerator = -ob.numerator;
+	ob1.denominator = ob.denominator;
 	return ob1;
 }
 
