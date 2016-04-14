@@ -57,6 +57,12 @@ Polynom operator *(const Polynom &p, const MegaRational &a)
 Polynom operator -(const Polynom &p)
 {
 	Polynom res;
+	res = p;
+	int i;
+	for(i = 0; i < res.coefficients.size(); i++)
+	{
+		res.coefficients[i] = -res.coefficients[i];
+	}
 	return res;
 }
 
