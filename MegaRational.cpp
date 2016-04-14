@@ -122,6 +122,13 @@ MegaRational operator /(const MegaRational &ob1, const MegaRational &ob2)
 
 	//res = (ob1 * ob2Cpy);
 	//return res;
+   if (ob2.numerator == 0)
+   {
+	  res.denominator = 1;
+	  res.numerator = 0;
+	  std::cout << "Error division by zero!\n";
+	  return res;
+   }
 
 	res.numerator = ob1.numerator*ob2.denominator;
 	res.denominator = (ob1.denominator*ob2.numerator).toMegaNatural();
