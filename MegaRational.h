@@ -1,4 +1,4 @@
-#ifndef MEGA_RATIONAL
+﻿#ifndef MEGA_RATIONAL
 #define MEGA_RATIONAL
 
 #include "MegaInteger.h"
@@ -9,8 +9,9 @@ class MegaRational
 {
 public:
 	MegaRational();
-	MegaRational(MegaInteger a);
-
+	MegaRational(const MegaInteger &a);
+	MegaRational(const MegaInteger &a, const MegaNatural &b);
+	MegaRational(const MegaRational &a);
 	~MegaRational();
 
 	//ќписание: сокращение дроби
@@ -30,7 +31,7 @@ public:
 	friend MegaRational operator *(const MegaRational &ob1, const MegaRational &ob2);
 	friend MegaRational operator /(const MegaRational &ob1, const MegaRational &ob2);
 	friend MegaRational operator %(const MegaRational &ob1, const MegaRational &ob2);
-	friend MegaRational operator -(const MegaRational ob);
+	friend MegaRational operator -(const MegaRational &ob);
 
 	MegaRational& operator =(MegaRational &ob);
 private:

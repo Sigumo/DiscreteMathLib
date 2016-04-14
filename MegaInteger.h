@@ -1,4 +1,4 @@
-#ifndef MEGA_INTEGER
+﻿#ifndef MEGA_INTEGER
 #define MEGA_INTEGER
 
 #include "MegaNatural.h"
@@ -22,7 +22,7 @@ public:
 	MegaNatural toMegaNatural();
 	string toString();
 
-	MegaInteger& operator =(MegaInteger &ob);
+	MegaInteger& operator =(const MegaInteger &ob);
 
 	friend bool operator ==(const MegaInteger &ob1, const MegaInteger &ob2);
 	friend bool operator!=(const MegaInteger &ob1, const MegaInteger &ob2);
