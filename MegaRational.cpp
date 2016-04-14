@@ -126,8 +126,9 @@ MegaRational operator /(const MegaRational &ob1, const MegaRational &ob2)
 	res.numerator = ob1.numerator*ob2.denominator;
 	res.denominator = (ob1.denominator*ob2.numerator).toMegaNatural();
 	res.numerator = res.numerator * ((ob2.numerator > 0) ? 1 : -1);
-	return res;
+	res.reduction();
 
+	return res;
 }
 MegaRational operator -(const MegaRational &ob)
 {
