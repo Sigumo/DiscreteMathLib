@@ -6,7 +6,7 @@ MegaNatural DiscreteMath::gcd(const MegaNatural &a, const MegaNatural &b)
 		return 0;
 	} 
 
-	MegaNatural temp,  _a = a, _b = b;;
+	MegaNatural temp,  _a = a, _b = b;
 	if (_a < _b)
 	{
 		temp = _a;
@@ -34,7 +34,7 @@ MegaNatural DiscreteMath::lcm(const MegaNatural &a, const MegaNatural &b)
 
 Polynom DiscreteMath::gcd(const Polynom &a, const Polynom &b)
 {
-	Polynom temp,  _a = a, _b = b;;
+	Polynom temp,  _a = a, _b = b;
 	if ( _a.getDegree() < _b.getDegree() )
 	{
 		temp = _a;
@@ -51,5 +51,5 @@ Polynom DiscreteMath::gcd(const Polynom &a, const Polynom &b)
 		_b = temp;
 	}
 
-	return _a.factorization();
+	return _a;
 }
