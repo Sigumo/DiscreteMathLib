@@ -13,7 +13,6 @@ public:
 
 	long long getDegree();
 	Polynom fluxion(); 
-	MegaRational factorization();
 
 	friend Polynom operator +(const Polynom &p1, const Polynom &p2);
 	friend Polynom operator -(const Polynom &p1, const Polynom &p2);
@@ -27,7 +26,7 @@ private:
 	deque<MegaRational> coefficients;
 
 	Polynom mulByXPowK(MegaInteger k);
-	
+	MegaRational factorization();
 };
 
 #include "Polynoms.cpp"
