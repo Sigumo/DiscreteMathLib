@@ -2,7 +2,7 @@ Polynom::Polynom()
 {
 
 }
-Polynom::Polynom(const &Polynom)
+Polynom::Polynom(const Polynom &ob)
 {
 
 }
@@ -60,7 +60,7 @@ Polynom operator -(const Polynom &p)
 	return res;
 }
 
-Polynom &operator =(const Polynom &p)
+Polynom& Polynom::operator= (const Polynom &p)
 {
 	Polynom res;
 	return res;
