@@ -129,8 +129,12 @@ Polynom& Polynom::operator= (const Polynom &p)
 
 Polynom mulByXPowK(MegaInteger k)
 {
-	Polynom res;
-	return res;
+	MegaInteger i;
+	for(i = 0; i < k; i = i + 1)
+	{
+		*this.coefficients.push_back(0);
+	}
+	return *this;
 }
 
 MegaRational factorization()
