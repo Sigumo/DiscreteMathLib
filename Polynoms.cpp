@@ -24,12 +24,52 @@ Polynom fluxion()
 
 Polynom operator +(const Polynom &p1, const Polynom &p2)
 {
-	Polynom res;
+	Polynom res = p1;
+	Polynom tmp = p2;
+	if(p1.getDegree() < p2.getDegree())
+	{
+		for(i = p2.getDegree() - p1.getDegree(); i > 0; i--)
+		{
+			res.coefficients.push_front(0);
+		}
+	}
+	else if(p1.getDegree() > p2.getDegree())
+	{
+		for(i = p1.getDegree() - p2.getDegree(); i > 0; i--)
+		{
+			tmp.coefficients.push_front(0);
+		}
+	}
+	for(i = 0; i <= p2.getDegree(); i++)
+		{
+			res.coefficients[i] = res.coefficients[i] + tmp.coefficients[i];
+		}
 	return res;
 }
 Polynom operator -(const Polynom &p1, const Polynom &p2)
 {
-	Polynom res;
+	Polynom res = p1;
+	Polynom tmp = p2;
+	int i;
+	if(p1.getDegree() < p2.getDegree())
+	{
+		for(i = p2.getDegree() - p1.getDegree(); i > 0; i--)
+		{
+			res.coefficients.push_front(0);
+		}
+	}
+	else if(p1.getDegree() > p2.getDegree())
+	{
+		for(i = p1.getDegree() - p2.getDegree(); i > 0; i--)
+		{
+			tmp.coefficients.push_front(0);
+		}
+	}
+	for(i = 0; i <= p2.getDegree(); i++)
+		{
+			res.coefficients[i] = res.coefficients[i] - tmp.coefficients[i];
+		}
+	
 	return res;
 }
 Polynom operator *(const Polynom &p1, const Polynom &p2)
