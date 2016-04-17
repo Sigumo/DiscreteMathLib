@@ -61,6 +61,12 @@ Polynom operator -(const Polynom &p1, const Polynom &p2)
 	{
 		res.coefficients[i] = res.coefficients[i] + tmp.coefficients[i];
 	}
+	i = 0;
+	while (res.coefficients[i] == 0)
+	{
+		res.coefficients.pop_front();
+		i++;
+	}
 	return res;
 }
 Polynom operator *(const Polynom &p1, const Polynom &p2)
