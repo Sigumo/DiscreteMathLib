@@ -13,7 +13,7 @@ Polynom::~Polynom()
 
 long long getDegree()
 {
-	return 0;
+	return (*this).coefficients.size() - 1;
 }
 
 Polynom fluxion()
